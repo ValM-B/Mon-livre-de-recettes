@@ -2,5 +2,17 @@
 couleur principale #faaa85
 couelur 2 #dc214c
 couleur 3 "95594e
-font title Sacramento
-font secondaire Playfair Display */
+font-family: 'Alex Brush', cursive;
+font-family: 'Playfair Display', serif;*/
+
+.container{
+    background-color: #f8c7b1;
+}
+
+h1{
+    font-family: 'Alex Brush', cursive;
+}
+
+.navbar {
+    background-color: #faaa85;
+}
