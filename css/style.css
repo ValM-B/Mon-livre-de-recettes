@@ -3,16 +3,155 @@ couleur principale #faaa85
 couelur 2 #dc214c
 couleur 3 "95594e
 font-family: 'Alex Brush', cursive;
-font-family: 'Playfair Display', serif;*/
+font-family: 'Raleway', sans-serif;
+font-family: 'Ysabeau Infant', sans-serif;*/
 
-.container{
-    background-color: #f8c7b1;
+:root {
+    --title-color: #800080;
+    --text-color: #212529;
+    --bg-color : #E6E6FA;
+    --title-font-family : 'Alex Brush', cursive;
+    --title-card-font-family : 'Ysabeau Infant', sans-serif;
+    --text-font-family : 'Raleway', sans-serif;
+    --gradient : radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0.50) 100%);
+    --gradient-recipe : radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0.60) 100%);
 }
 
+body{
+    background-image: var(--gradient), url(../images/_7b5c2d4b-a7a4-4c13-80f3-233223c91ae8.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 60%;
+    background-attachment: fixed;
+    
+    font-family: 'Raleway', sans-serif;
+}
+
+.recette-body{
+    background-image: var(--gradient-recipe), url(../images/brioche-butchy-1.jpg);
+}
+
+
 h1{
-    font-family: 'Alex Brush', cursive;
+    font-family: var(--title-color);
 }
 
 .navbar {
-    background-color: #faaa85;
+    background-color: var(--bg-color);
+    
+}
+
+.navbar-brand,
+button.navbar-toggler,
+.navbar-toggler-icon,
+.nav-link,
+.dropdown-menu
+{
+    color: var(--title-color);
+    font-family: var(--text-font-family);
+}
+
+.home-title{
+    font-family: var(--title-font-family);
+    color:  var(--title-color);
+    font-weight:500;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.btn-outline-info {
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: var(--title-color);
+    
+    --bs-btn-border-color: var(--title-color);
+    --bs-btn-hover-color: var(--bg-color);
+    --bs-btn-hover-bg: var(--title-color);
+    --bs-btn-hover-border-color: var(--bg-color);
+    --bs-btn-active-color: var(--bg-color);
+    --bs-btn-active-bg: var(--title-color);
+    --bs-btn-active-border-color: var(--bg-color);
+    
+    
+}
+
+.carousel{
+    margin-top : 3rem;
+    
+
+}
+
+
+@media (min-width: 1200px){
+    .carousel-inner{
+    width: 70%;
+    margin: auto;
+    }
+}
+
+
+.home-search label{
+    margin-top : 4rem;
+    font-size: 1.5rem;
+}
+
+.home-search input{
+    margin-top: 1.5rem;
+}
+
+.btn-primary {
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: var(--bg-color);
+    --bs-btn-bg: var(--title-color);
+    --bs-btn-border-color: var(--title-color);
+    --bs-btn-hover-color: var(--title-color);
+    --bs-btn-hover-bg: var(--bg-color);
+    --bs-btn-hover-border-color: var(--title-color);
+    --bs-btn-active-color: var(--title-color);
+    --bs-btn-active-bg: var(--bg-color);
+    --bs-btn-active-border-color: var(--bg-color);
+    margin-top: 1.5rem;
+}
+
+
+
+.category-recipes{
+    margin: auto 2rem;
+    font-family: var(--text-font-family);
+}
+
+.category-recipes h5{
+    
+    font-weight: bold;
+
+}
+
+.card{
+    box-shadow: 1px 1px 5px rgb(170, 170, 170);
+    border: none;
+}
+
+.card-ingredients{
+    max-height: 50%;
+}
+
+.card-ingredients img{
+    width: 95%;
+    display: block;
+    margin: 1.1rem auto;
+}
+
+.card-recette p {
+    text-align: justify;
+}
+.ingredient{
+    column-count: auto;
+}
+
+#footer{
+    color: white;
+    font-family: var(--text-font-family);
+    width: 100%;
+    margin-top : 4rem;
+    text-align: center;
+    font-size: 1.2rem;
 }
