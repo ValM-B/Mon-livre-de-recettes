@@ -27,7 +27,7 @@ body{
     font-family: 'Raleway', sans-serif;
 }
 
-.recette-body{
+.recipe{
     background-image: var(--gradient-recipe), url(../images/brioche-butchy-1.jpg);
 }
 
