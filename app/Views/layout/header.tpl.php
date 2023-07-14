@@ -8,12 +8,12 @@
 	<link rel="stylesheet" href="<?=$assetsBaseUri?>css/style.css">
 	<link rel="icon" type="image/gif" href="images/logo 3.gif" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Raleway&family=Ysabeau+Infant&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Raleway&family=Ysabeau+Infant&display=swap" rel="stylesheet">
 
 	<title>Le cupcake enchanté</title>
 </head>
-<body class="<?php if($viewData["body-class-name"]){ echo $viewData["body-class-name"];}?>">
+<body class="<?php if(isset($viewData["body-class-name"])){ echo $viewData["body-class-name"];}?>">
 	<header>
         <?php 
 		

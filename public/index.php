@@ -13,6 +13,8 @@ if (array_key_exists('BASE_URI', $_SERVER)) {
 --- ROUTAGE ---
 -------------*/
 
+/* MAIN */ 
+
 $router->map(
     'GET',
     '/',
@@ -23,34 +25,80 @@ $router->map(
     'home'
 );
 
-$router->map(
-    'GET',
-    '/category',
-    [
-        'controller' => '\App\Controllers\RecipeController',
-        'method' => 'category'
-    ],
-    'category'
-);
-
-$router->map(
-    'GET',
-    '/recipe',
-    [
-        'controller' => '\App\Controllers\RecipeController',
-        'method' => 'recipe'
-    ],
-    'recipe'
-);
+/* RECIPE */ 
 
 $router->map(
 'GET',
-'/recipe/add',
+'/recipe',
 [
-    'controller' => '\App\Controllers\RecipeController',
-    'method' => 'recipeAdd'
+'controller' => '\App\Controllers\RecipeController',
+'method' => 'browse'
 ],
-'recipe-add'
+'recipe-browse'
+);
+
+
+$router->map(
+    'GET',
+    '/recipe/[i:id]',
+    [
+        'controller' => '\App\Controllers\RecipeController',
+        'method' => 'read'
+    ],
+    'recipe-read'
+);
+
+$router->map(
+    'GET',
+    '/recipe/add',
+    [
+        'controller' => '\App\Controllers\RecipeController',
+        'method' => 'add'
+    ],
+    'recipe-add'
+);
+
+$router->map(
+    'GET',
+    '/admin/recipe',
+    [
+    'controller' => '\App\Controllers\RecipeController',
+    'method' => 'adminBrowse'
+    ],
+    'recipe-admin-browse'
+);
+
+/* CATEGORY */ 
+
+$router->map(
+'GET',
+'/category',
+[
+'controller' => '\App\Controllers\CategoryController',
+'method' => 'browse'
+],
+'category-browse'
+);
+
+
+$router->map(
+    'GET',
+    '/category/[i:id]',
+    [
+        'controller' => '\App\Controllers\CategoryController',
+        'method' => 'read'
+    ],
+    'category-read'
+);
+
+$router->map(
+    'GET',
+    '/admin/category',
+    [
+    'controller' => '\App\Controllers\CategoryController',
+    'method' => 'adminBrowse'
+    ],
+    'admin-category-browse'
 );
 
 /* ------------
