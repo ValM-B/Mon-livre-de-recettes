@@ -23,4 +23,19 @@ class RecipeController extends CoreController
             "body-class-name" => $bodyClassName
         ]);
     }
+
+    public function adminBrowse()
+    {
+        $this->show("recipe/admin-browse");
+    }
+
+    public function add()
+    {
+        $this->show("recipe/add");
+    }
+
+    public function edit($id)
+    {
+        $this->show("recipe/edit");
+    }
 }

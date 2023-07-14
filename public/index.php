@@ -68,6 +68,17 @@ $router->map(
     'recipe-admin-browse'
 );
 
+
+$router->map(
+    'GET',
+    '/recipe/edit/[i:id]',
+    [
+    'controller' => '\App\Controllers\RecipeController',
+    'method' => 'edit'
+    ],
+    'recipe-admin-edit'
+);
+
 /* CATEGORY */ 
 
 $router->map(
@@ -99,6 +110,16 @@ $router->map(
     'method' => 'adminBrowse'
     ],
     'admin-category-browse'
+);
+
+$router->map(
+    'GET',
+    '/admin/category/add',
+    [
+    'controller' => '\App\Controllers\CategoryController',
+    'method' => 'add'
+    ],
+    'admin-category-add'
 );
 
 /* ------------

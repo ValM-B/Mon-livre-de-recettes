@@ -26,5 +26,10 @@ class CategoryController extends CoreController
     {
         $this->show("category/admin-browse");
     }
+
+    public function add()
+    {
+        $this->show("category/add");
+    }
     
 }
