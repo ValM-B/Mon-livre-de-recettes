@@ -43,6 +43,16 @@ $router->map(
     'recipe'
 );
 
+$router->map(
+'GET',
+'/recipe/add',
+[
+    'controller' => '\App\Controllers\RecipeController',
+    'method' => 'recipeAdd'
+],
+'recipe-add'
+);
+
 /* ------------
 --- DISPATCH ---
 -------------*/
