@@ -12,4 +12,9 @@ class IngredientController extends CoreController
     {
         $this->show("ingredient/add");
     }
+
+    public function edit($id)
+    {
+        $this->show("ingredient/edit");
+    }
 }

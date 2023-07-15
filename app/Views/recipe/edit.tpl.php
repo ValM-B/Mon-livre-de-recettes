@@ -3,14 +3,30 @@
     <div class="container">
         <div class="card card-category mt-4 p-4 ">
             <div class="row justify-content-center">
-                <form class="col-sm-8">
+                <form class="col-sm-8" method="POST" action="">
                     <div class="mb-3 recipeName">
                         <label for="recipeName">Nom</label>
-                        <input type="text" class="form-control" id="recipeName"  placeholder="Nom de la recette">
+                        <input type="text" name="name" class="form-control" id="recipeName"  placeholder="Nom de la recette" 
+                        <?php
+                        if(isset($_SESSION["name"])){?>
+                            value="<?=$_SESSION["name"]?>"
+                
+                        <?php
+                        }
+                        ?>    
+                        >
                     </div>
                     <div class="mb-3 portions">
                         <label for="portions">Nombre de parts</label>
-                        <input type="number" name="rate" class="form-control" id="portions" placeholder="Nombre de parts">
+                        <input type="number" name="portions" class="form-control" id="portions" placeholder="Nombre de parts"
+                        <?php
+                        if(isset($_SESSION["portions"])){?>
+                            value="<?=$_SESSION["portions"]?>"
+                
+                        <?php
+                        }
+                        ?>    
+                        >
                     </div>
                     <div class="mb-3 categoryId">
                     <label for="category_id" class="form-label">Categorie</label>
@@ -23,6 +39,9 @@
                     </div>
 
                     <div class="card card-recipe mt-4 p-4 mb-3">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="submit" class="btn btn-primary">Ajouter a près submit</button>
+                    </div>
                         <label  class="form-label">Liste des ingrédients</label>
                         <table class="table table-striped" id="table-striped">
                             <thead>
@@ -107,10 +126,15 @@
 
                     <div class="mb-3 instructions">
                         <label for="instructions">Instructions</label>
-                        <textarea name="instructions" class="form-control" id="instructions" placeholder="Nombre de parts" rows="10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem impedit ipsam nihil officiis ut repellat neque recusandae asperiores obcaecati dolorum quis cum sapiente nobis, quasi rerum veritatis praesentium nulla voluptatibus. Recusandae atque nostrum aspernatur eveniet dignissimos, nulla sed nesciunt! Nulla facilis accusamus voluptates vitae sapiente recusandae facere praesentium consequatur reiciendis, rerum sed tempore, nihil repellendus laudantium, maxime soluta non quo quod doloribus voluptatem dolorem quidem! Veniam inventore unde eaque fugiat aliquam repudiandae voluptatibus, ratione sequi quibusdam adipisci similique? Eius blanditiis hic vero voluptas facilis, molestiae temporibus reiciendis culpa laboriosam, quibusdam nemo harum ex adipisci sapiente provident laborum corporis? Eaque, impedit.</textarea>
+                        <textarea name="instructions" class="form-control" id="instructions" placeholder="Nombre de parts" rows="10"><?php
+                        if(isset($_SESSION["instructions"])){?><?=$_SESSION["instructions"]?>
+                        <?php
+                        }
+                        ?></textarea>
                     </div>
+                   
                     
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" value="validate" name="submit">Submit</button>
                 </form>
             </div>
         </div>
