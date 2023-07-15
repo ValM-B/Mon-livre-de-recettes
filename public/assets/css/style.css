@@ -110,6 +110,7 @@ button.navbar-toggler,
     --bs-btn-active-bg: var(--bg-color);
     --bs-btn-active-border-color: var(--bg-color);
     margin-top: 1.5rem;
+    
 }
 
 
@@ -149,31 +150,14 @@ button.navbar-toggler,
     column-count: auto;
 }
 
-.fa-pencil
-{
-    color: var(--bg-color);
-    
-}
-
 .btn-warning
 {
     background-color: var(--title-color);
-    border : var(--title-color)
+    border : var(--title-color);
+    color: var(--bg-color);
 }
 
 .btn-warning:hover
-{
-    background-color: #eeb4ee;
-    border : #eeb4ee;
-}
-
-.btn-danger
-{
-    background-color: var(--title-color);
-    border : var(--title-color)
-}
-
-.btn-danger:hover
 {
     background-color: #eeb4ee;
     border : #eeb4ee;

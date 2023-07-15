@@ -1,6 +1,9 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
+
+session_start();
+
 $router = new AltoRouter();
 
 if (array_key_exists('BASE_URI', $_SERVER)) {
@@ -120,6 +123,28 @@ $router->map(
     'method' => 'add'
     ],
     'admin-category-add'
+);
+
+/* RECIPE */ 
+
+$router->map(
+    'GET',
+    '/admin/ingredient',
+    [
+    'controller' => '\App\Controllers\IngredientController',
+    'method' => 'browse'
+    ],
+    'ingredient-browse'
+);
+
+$router->map(
+    'GET',
+    '/admin/ingredient/add',
+    [
+    'controller' => '\App\Controllers\IngredientController',
+    'method' => 'add'
+    ],
+    'ingredient-add'
 );
 
 /* ------------
