@@ -3,7 +3,7 @@
     <div class="container col-md-6">
         <div class="card card-category mt-4 p-4 ">
             <div class="row justify-content-center">
-                <form class="col-sm-8">
+                <form class="col-sm-8" action="" method="POST">
                     <div class="form-group">
                         <label for="recipeName">Nom</label>
                         <input type="text" class="form-control" id="recipeName"  placeholder="Nom de la recette">

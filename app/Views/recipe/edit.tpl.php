@@ -40,7 +40,7 @@
 
                     <div class="card card-recipe mt-4 p-4 mb-3">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button type="submit" class="btn btn-primary">Ajouter a près submit</button>
+                        <button type="submit" name="submit" value="addIngredient" class="btn btn-primary">Ajouter un ingrédient</button>
                     </div>
                         <label  class="form-label">Liste des ingrédients</label>
                         <table class="table table-striped" id="table-striped">
@@ -60,9 +60,9 @@
                                 <td>150</td>
                                 <td>g</td>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-sm btn-warning">
+                                    <button type="submit" class="btn btn-sm btn-warning" value="1" name="submit">
                                         <i class="fa fa-pencil" aria-hidden="true"></i>
-                                    </a>
+                                    </button>
                                     <!-- Example single danger button -->
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-warning dropdown-toggle"

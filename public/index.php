@@ -25,19 +25,19 @@ $router->map(
         'controller' => '\App\Controllers\MainController',
         'method' => 'home'
     ],
-    'home'
+    'main-home'
 );
 
 /* RECIPE */ 
 
 $router->map(
-'GET',
-'/recipe',
-[
-'controller' => '\App\Controllers\RecipeController',
-'method' => 'browse'
-],
-'recipe-browse'
+    'GET',
+    '/recipe',
+    [
+    'controller' => '\App\Controllers\RecipeController',
+    'method' => 'browse'
+    ],
+    'recipe-browse'
 );
 
 
@@ -53,12 +53,22 @@ $router->map(
 
 $router->map(
     'GET',
-    '/recipe/add',
+    '/admin/recipe/add',
     [
         'controller' => '\App\Controllers\RecipeController',
         'method' => 'add'
     ],
     'recipe-add'
+);
+
+$router->map(
+    'POST',
+    '/admin/recipe/add',
+    [
+        'controller' => '\App\Controllers\RecipeController',
+        'method' => 'addExecute'
+    ],
+    'recipe-addExecute'
 );
 
 $router->map(
@@ -68,60 +78,80 @@ $router->map(
     'controller' => '\App\Controllers\RecipeController',
     'method' => 'adminBrowse'
     ],
-    'recipe-admin-browse'
+    'admin-recipe-browse'
 );
 
 
 $router->map(
     'GET',
-    '/recipe/edit/[i:id]',
+    '/admin/recipe/edit/[i:id]',
     [
     'controller' => '\App\Controllers\RecipeController',
     'method' => 'edit'
     ],
-    'recipe-admin-edit'
+    'admin-recipe-edit'
 );
 
 $router->map(
     'POST',
-    '/recipe/edit/[i:id]',
+    '/admin/recipe/edit/[i:id]',
     [
     'controller' => '\App\Controllers\RecipeController',
     'method' => 'editExecute'
     ],
-    'recipe-admin-edit-execute'
+    'admin-recipe-edit-execute'
 );
 
 $router->map(
     'GET',
-    '/recipe/edit/add-ingredient',
+    '/admin/recipe/edit/add-ingredient',
     [
     'controller' => '\App\Controllers\RecipeController',
     'method' => 'addIngredient'
     ],
-    'recipe-admin-edit-addIngredient'
+    'admin-recipe-edit-addIngredient'
 );
 
 $router->map(
     'POST',
-    '/recipe/edit/add-ingredient',
+    '/admin/recipe/edit/add-ingredient',
     [
     'controller' => '\App\Controllers\RecipeController',
     'method' => 'addIngredientExecute'
     ],
-    'recipe-admin-edit-addIngredient-execute'
+    'admin-recipe-edit-addIngredient-execute'
+);
+
+$router->map(
+    'GET',
+    '/admin/recipe/edit/[i:idRecipe]/edit-ingredient/[i:idIngredient]',
+    [
+    'controller' => '\App\Controllers\RecipeController',
+    'method' => 'editIngredient'
+    ],
+    'admin-recipe-edit-editIngredient'
+);
+
+$router->map(
+    'POST',
+    '/admin/recipe/edit/[i:idRecipe]/edit-ingredient/[i:idIngredient]',
+    [
+    'controller' => '\App\Controllers\RecipeController',
+    'method' => 'editIngredientExecute'
+    ],
+    'admin-recipe-edit-editIngredientExecute'
 );
 
 /* CATEGORY */ 
 
 $router->map(
-'GET',
-'/category',
-[
-'controller' => '\App\Controllers\CategoryController',
-'method' => 'browse'
-],
-'category-browse'
+    'GET',
+    '/category',
+    [
+    'controller' => '\App\Controllers\CategoryController',
+    'method' => 'browse'
+    ],
+    'category-browse'
 );
 
 
@@ -164,7 +194,7 @@ $router->map(
     'controller' => '\App\Controllers\IngredientController',
     'method' => 'browse'
     ],
-    'ingredient-browse'
+    'admin-ingredient-browse'
 );
 
 $router->map(
@@ -174,7 +204,17 @@ $router->map(
     'controller' => '\App\Controllers\IngredientController',
     'method' => 'add'
     ],
-    'ingredient-add'
+    'admin-ingredient-add'
+);
+
+$router->map(
+    'POST',
+    '/admin/ingredient/add',
+    [
+    'controller' => '\App\Controllers\IngredientController',
+    'method' => 'addExecute'
+    ],
+    'admion-ingredient-addExecute'
 );
 
 $router->map(
@@ -184,7 +224,7 @@ $router->map(
     'controller' => '\App\Controllers\IngredientController',
     'method' => 'edit'
     ],
-    'ingredient-edit'
+    'admin-ingredient-edit'
 );
 
 /* ------------
