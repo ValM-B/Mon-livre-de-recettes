@@ -69,7 +69,7 @@ abstract class CoreModel
         return $this;
     }
 
-    abstract public function findAll();
+    abstract public static function findAll($sort ="");
     abstract public function find($id);
     abstract public function insert();
     abstract public function update($id);

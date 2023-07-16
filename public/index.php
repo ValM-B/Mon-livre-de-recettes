@@ -40,6 +40,16 @@ $router->map(
     'recipe-browse'
 );
 
+$router->map(
+    'GET',
+    '/recipe/category/[i:id]',
+    [
+    'controller' => '\App\Controllers\RecipeController',
+    'method' => 'browseByCategory'
+    ],
+    'recipe-browse-category'
+);
+
 
 $router->map(
     'GET',

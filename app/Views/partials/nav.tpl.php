@@ -8,19 +8,39 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Sucré
+                    Pâtisserie
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Tarte</a></li>
-                        <li><a class="dropdown-item" href="#">Glace</a></li>
-                        <li><a class="dropdown-item" href="#">Gâteau</a></li>
+                        <?php
+                        foreach ($categoryList as $category) : 
+                            if($category->getFamily() === "patisserie"){?>
+                            <li><a class="dropdown-item" href="<?= $router->generate('recipe-browse-category', ['id' => $category->getId()]) ?>"><?=$category->getName()?></a></li>
+                        <?php
+                            }
+                        endforeach;
+                        ?>
                     </ul>
                 </li>
+                <?php
+                    foreach ($categoryList as $category) : 
+                        if($category->getFamily() === "autre"){?>
+                        <li class="nav-item"><a class="nav-link" href="#"><?=$category->getName()?></a></li>
+                <?php
+                        }
+                    endforeach;
+                ?>
+                
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Salé</a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Boulange</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Tarte</a></li>
-                        <li><a class="dropdown-item" href="#">pain</a></li>
+                        <?php
+                        foreach ($categoryList as $category) : 
+                            if($category->getFamily() === "boulange"){?>
+                            <li><a class="dropdown-item" href="#"><?=$category->getName()?></a></li>
+                        <?php
+                                }
+                            endforeach;
+                        ?>
                     </ul>
                 </li>
                 

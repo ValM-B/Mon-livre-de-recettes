@@ -1,10 +1,14 @@
 <?php
 namespace App\Controllers;
 
+use App\Models\Category;
+
 class CoreController
 {
     protected function show ($viewName, $viewData = [])
     {
+        $viewData["categoryList"] = Category::findAll("name");
+        
         //! A supprimer quand je pourrai
         global $router;
 

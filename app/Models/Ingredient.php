@@ -47,7 +47,7 @@ class Ingredient extends CoreModel
         return $this;
     }
 
-    public function findAll()
+    public static function findAll($sort ="")
     {
         
     }
