@@ -110,6 +110,7 @@ button.navbar-toggler,
     --bs-btn-active-bg: var(--bg-color);
     --bs-btn-active-border-color: var(--bg-color);
     margin-top: 1.5rem;
+    
 }
 
 
@@ -119,6 +120,7 @@ button.navbar-toggler,
     font-family: var(--text-font-family);
 }
 
+.card-categories h5,
 .category-recipes h5{
     
     font-weight: bold;
@@ -140,11 +142,25 @@ button.navbar-toggler,
     margin: 1.1rem auto;
 }
 
-.card-recette p {
+
+.card-recipe p {
     text-align: justify;
 }
 .ingredient{
     column-count: auto;
+}
+
+.btn-warning
+{
+    background-color: var(--title-color);
+    border : var(--title-color);
+    color: var(--bg-color);
+}
+
+.btn-warning:hover
+{
+    background-color: #eeb4ee;
+    border : #eeb4ee;
 }
 
 #footer{

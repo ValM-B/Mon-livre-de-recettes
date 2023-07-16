@@ -1,6 +1,9 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
+
+session_start();
+
 $router = new AltoRouter();
 
 if (array_key_exists('BASE_URI', $_SERVER)) {
@@ -13,6 +16,8 @@ if (array_key_exists('BASE_URI', $_SERVER)) {
 --- ROUTAGE ---
 -------------*/
 
+/* MAIN */ 
+
 $router->map(
     'GET',
     '/',
@@ -20,37 +25,206 @@ $router->map(
         'controller' => '\App\Controllers\MainController',
         'method' => 'home'
     ],
-    'home'
+    'main-home'
 );
 
-$router->map(
-    'GET',
-    '/category',
-    [
-        'controller' => '\App\Controllers\RecipeController',
-        'method' => 'category'
-    ],
-    'category'
-);
+/* RECIPE */ 
 
 $router->map(
     'GET',
     '/recipe',
     [
-        'controller' => '\App\Controllers\RecipeController',
-        'method' => 'recipe'
+    'controller' => '\App\Controllers\RecipeController',
+    'method' => 'browse'
     ],
-    'recipe'
+    'recipe-browse'
+);
+
+
+$router->map(
+    'GET',
+    '/recipe/[i:id]',
+    [
+        'controller' => '\App\Controllers\RecipeController',
+        'method' => 'read'
+    ],
+    'recipe-read'
 );
 
 $router->map(
-'GET',
-'/recipe/add',
-[
+    'GET',
+    '/admin/recipe/add',
+    [
+        'controller' => '\App\Controllers\RecipeController',
+        'method' => 'add'
+    ],
+    'recipe-add'
+);
+
+$router->map(
+    'POST',
+    '/admin/recipe/add',
+    [
+        'controller' => '\App\Controllers\RecipeController',
+        'method' => 'addExecute'
+    ],
+    'recipe-addExecute'
+);
+
+$router->map(
+    'GET',
+    '/admin/recipe',
+    [
     'controller' => '\App\Controllers\RecipeController',
-    'method' => 'recipeAdd'
-],
-'recipe-add'
+    'method' => 'adminBrowse'
+    ],
+    'admin-recipe-browse'
+);
+
+
+$router->map(
+    'GET',
+    '/admin/recipe/edit/[i:id]',
+    [
+    'controller' => '\App\Controllers\RecipeController',
+    'method' => 'edit'
+    ],
+    'admin-recipe-edit'
+);
+
+$router->map(
+    'POST',
+    '/admin/recipe/edit/[i:id]',
+    [
+    'controller' => '\App\Controllers\RecipeController',
+    'method' => 'editExecute'
+    ],
+    'admin-recipe-edit-execute'
+);
+
+$router->map(
+    'GET',
+    '/admin/recipe/edit/add-ingredient',
+    [
+    'controller' => '\App\Controllers\RecipeController',
+    'method' => 'addIngredient'
+    ],
+    'admin-recipe-edit-addIngredient'
+);
+
+$router->map(
+    'POST',
+    '/admin/recipe/edit/add-ingredient',
+    [
+    'controller' => '\App\Controllers\RecipeController',
+    'method' => 'addIngredientExecute'
+    ],
+    'admin-recipe-edit-addIngredient-execute'
+);
+
+$router->map(
+    'GET',
+    '/admin/recipe/edit/[i:idRecipe]/edit-ingredient/[i:idIngredient]',
+    [
+    'controller' => '\App\Controllers\RecipeController',
+    'method' => 'editIngredient'
+    ],
+    'admin-recipe-edit-editIngredient'
+);
+
+$router->map(
+    'POST',
+    '/admin/recipe/edit/[i:idRecipe]/edit-ingredient/[i:idIngredient]',
+    [
+    'controller' => '\App\Controllers\RecipeController',
+    'method' => 'editIngredientExecute'
+    ],
+    'admin-recipe-edit-editIngredientExecute'
+);
+
+/* CATEGORY */ 
+
+$router->map(
+    'GET',
+    '/category',
+    [
+    'controller' => '\App\Controllers\CategoryController',
+    'method' => 'browse'
+    ],
+    'category-browse'
+);
+
+
+$router->map(
+    'GET',
+    '/category/[i:id]',
+    [
+        'controller' => '\App\Controllers\CategoryController',
+        'method' => 'read'
+    ],
+    'category-read'
+);
+
+$router->map(
+    'GET',
+    '/admin/category',
+    [
+    'controller' => '\App\Controllers\CategoryController',
+    'method' => 'adminBrowse'
+    ],
+    'admin-category-browse'
+);
+
+$router->map(
+    'GET',
+    '/admin/category/add',
+    [
+    'controller' => '\App\Controllers\CategoryController',
+    'method' => 'add'
+    ],
+    'admin-category-add'
+);
+
+/* INGREDIENT */ 
+
+$router->map(
+    'GET',
+    '/admin/ingredient',
+    [
+    'controller' => '\App\Controllers\IngredientController',
+    'method' => 'browse'
+    ],
+    'admin-ingredient-browse'
+);
+
+$router->map(
+    'GET',
+    '/admin/ingredient/add',
+    [
+    'controller' => '\App\Controllers\IngredientController',
+    'method' => 'add'
+    ],
+    'admin-ingredient-add'
+);
+
+$router->map(
+    'POST',
+    '/admin/ingredient/add',
+    [
+    'controller' => '\App\Controllers\IngredientController',
+    'method' => 'addExecute'
+    ],
+    'admion-ingredient-addExecute'
+);
+
+$router->map(
+    'GET',
+    '/admin/ingredient/edit/[i:id]',
+    [
+    'controller' => '\App\Controllers\IngredientController',
+    'method' => 'edit'
+    ],
+    'admin-ingredient-edit'
 );
 
 /* ------------
