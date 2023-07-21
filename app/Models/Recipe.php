@@ -1,7 +1,10 @@
 <?php
 namespace App\Models;
 
-class Category extends CoreModel
+use App\Utils\Database;
+use PDO;
+
+class Recipe extends CoreModel
 {
     private $title;
     private $portions;
@@ -131,7 +134,7 @@ class Category extends CoreModel
         return $this;
     }
 
-    public function findAll()
+    public static function findAll($sort ="")
     {
         
     }
@@ -154,5 +157,26 @@ class Category extends CoreModel
     public function delete($id)
     {
 
+    }
+    /**
+    * Retourne la liste des recettes d'une catégorie de la DB
+    *
+    *@param int $categoryId id de la catégorie
+    *@return Recipe[]
+    */
+    public static function findByCategory($categoryId)
+    {
+        $pdo = Database::getPDO();
+
+        $sql = "SELECT `id`, `title`, `portions`, `rate`, `instructions`, `category_id`, `picture`, `created_at`, `updated_at` 
+            FROM `recipe`
+            WHERE `category_id` = $categoryId";
+
+        $pdoStatement = $pdo->query($sql);
+        if ($pdoStatement === false) {
+            exit("Problème lors de la récupération de la liste des catégories");
+        }
+
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'App\Models\Recipe');
     }
 }
