@@ -32,7 +32,7 @@
                 </div>
                 <div class="row justify-content-sm-center">
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="specificSizeInputName" placeholder="Jane Doe">
+                        <input type="text" class="form-control" id="specificSizeInputName" placeholder="">
                     </div>
                 </div>
                 <div class="row justify-content-sm-center">

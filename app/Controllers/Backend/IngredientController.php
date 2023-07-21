@@ -1,5 +1,7 @@
 <?php
-namespace App\Controllers;
+namespace App\Controllers\Backend;
+
+use App\Controllers\CoreController;
 
 class IngredientController extends CoreController
 {
@@ -15,8 +17,6 @@ class IngredientController extends CoreController
 
     public function addExecute()
     {
-        var_dump($_POST);
-        var_dump($_SESSION);
         if(!empty($_SESSION)){
             $this->redirectToRoute("admin-recipe-edit-addIngredient");
         } else {

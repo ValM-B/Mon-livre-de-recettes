@@ -24,7 +24,7 @@
                 <?php
                     foreach ($categoryList as $category) : 
                         if($category->getFamily() === "autre"){?>
-                        <li class="nav-item"><a class="nav-link" href="#"><?=$category->getName()?></a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?= $router->generate('recipe-browse-category', ['id' => $category->getId()]) ?>"><?=$category->getName()?></a></li>
                 <?php
                         }
                     endforeach;
@@ -36,7 +36,7 @@
                         <?php
                         foreach ($categoryList as $category) : 
                             if($category->getFamily() === "boulange"){?>
-                            <li><a class="dropdown-item" href="#"><?=$category->getName()?></a></li>
+                            <li><a class="dropdown-item" href="<?= $router->generate('recipe-browse-category', ['id' => $category->getId()]) ?>"><?=$category->getName()?></a></li>
                         <?php
                                 }
                             endforeach;
