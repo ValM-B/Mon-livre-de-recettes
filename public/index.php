@@ -30,6 +30,16 @@ $router->map(
     'main-home'
 );
 
+$router->map(
+    'GET',
+    '/admin',
+    [
+    'controller' => '\App\Controllers\MainController',
+    'method' => 'admin'
+    ],
+    'admin-home'
+);
+
 /* RECIPE */ 
 
 $router->map(
@@ -67,7 +77,7 @@ $router->map(
     'GET',
     '/admin/recipe/add',
     [
-        'controller' => '\App\Controllers\Backend\RecipeController',
+        'controller' => '\App\Controllers\Backoffice\RecipeController',
         'method' => 'add'
     ],
     'recipe-add'
@@ -77,7 +87,7 @@ $router->map(
     'POST',
     '/admin/recipe/add',
     [
-        'controller' => '\App\Controllers\Backend\RecipeController',
+        'controller' => '\App\Controllers\Backoffice\RecipeController',
         'method' => 'addExecute'
     ],
     'recipe-addExecute'
@@ -87,7 +97,7 @@ $router->map(
     'GET',
     '/admin/recipe',
     [
-    'controller' => '\App\Controllers\Backend\RecipeController',
+    'controller' => '\App\Controllers\Backoffice\RecipeController',
     'method' => 'browse'
     ],
     'admin-recipe-browse'
@@ -98,7 +108,7 @@ $router->map(
     'GET',
     '/admin/recipe/edit/[i:id]',
     [
-    'controller' => '\App\Controllers\Backend\RecipeController',
+    'controller' => '\App\Controllers\Backoffice\RecipeController',
     'method' => 'edit'
     ],
     'admin-recipe-edit'
@@ -108,7 +118,7 @@ $router->map(
     'POST',
     '/admin/recipe/edit/[i:id]',
     [
-    'controller' => '\App\Controllers\Backend\RecipeController',
+    'controller' => '\App\Controllers\Backoffice\RecipeController',
     'method' => 'editExecute'
     ],
     'admin-recipe-edit-execute'
@@ -118,7 +128,7 @@ $router->map(
     'GET',
     '/admin/recipe/edit/add-ingredient',
     [
-    'controller' => '\App\Controllers\Backend\RecipeController',
+    'controller' => '\App\Controllers\Backoffice\RecipeController',
     'method' => 'addIngredient'
     ],
     'admin-recipe-edit-addIngredient'
@@ -128,7 +138,7 @@ $router->map(
     'POST',
     '/admin/recipe/edit/add-ingredient',
     [
-    'controller' => '\App\Controllers\Backend\RecipeController',
+    'controller' => '\App\Controllers\Backoffice\RecipeController',
     'method' => 'addIngredientExecute'
     ],
     'admin-recipe-edit-addIngredient-execute'
@@ -138,7 +148,7 @@ $router->map(
     'GET',
     '/admin/recipe/edit/[i:idRecipe]/edit-ingredient/[i:idIngredient]',
     [
-    'controller' => '\App\Controllers\Backend\RecipeController',
+    'controller' => '\App\Controllers\Backoffice\RecipeController',
     'method' => 'editIngredient'
     ],
     'admin-recipe-edit-editIngredient'
@@ -148,7 +158,7 @@ $router->map(
     'POST',
     '/admin/recipe/edit/[i:idRecipe]/edit-ingredient/[i:idIngredient]',
     [
-    'controller' => '\App\Controllers\Backend\RecipeController',
+    'controller' => '\App\Controllers\Backoffice\RecipeController',
     'method' => 'editIngredientExecute'
     ],
     'admin-recipe-edit-editIngredientExecute'
@@ -181,7 +191,7 @@ $router->map(
     'GET',
     '/admin/category',
     [
-    'controller' => '\App\Controllers\Backend\CategoryController',
+    'controller' => '\App\Controllers\Backoffice\CategoryController',
     'method' => 'browse'
     ],
     'admin-category-browse'
@@ -191,7 +201,7 @@ $router->map(
     'GET',
     '/admin/category/add',
     [
-    'controller' => '\App\Controllers\Backend\CategoryController',
+    'controller' => '\App\Controllers\Backoffice\CategoryController',
     'method' => 'add'
     ],
     'admin-category-add'
@@ -203,7 +213,7 @@ $router->map(
     'GET',
     '/admin/ingredient',
     [
-    'controller' => 'App\Controllers\Backend\IngredientController',
+    'controller' => 'App\Controllers\Backoffice\IngredientController',
     'method' => 'browse'
     ],
     'admin-ingredient-browse'
@@ -213,7 +223,7 @@ $router->map(
     'GET',
     '/admin/ingredient/add',
     [
-    'controller' => '\App\Controllers\Backend\IngredientController',
+    'controller' => '\App\Controllers\Backoffice\IngredientController',
     'method' => 'add'
     ],
     'admin-ingredient-add'
@@ -223,7 +233,7 @@ $router->map(
     'POST',
     '/admin/ingredient/add',
     [
-    'controller' => '\App\Controllers\Backend\IngredientController',
+    'controller' => '\App\Controllers\Backoffice\IngredientController',
     'method' => 'addExecute'
     ],
     'admin-ingredient-addExecute'
@@ -233,7 +243,7 @@ $router->map(
     'GET',
     '/admin/ingredient/edit/[i:id]',
     [
-    'controller' => '\App\Controllers\Backend\IngredientController',
+    'controller' => '\App\Controllers\Backoffice\IngredientController',
     'method' => 'edit'
     ],
     'admin-ingredient-edit'

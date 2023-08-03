@@ -3,7 +3,7 @@
     <div class="container">
         <div class="card card-category mt-4 p-4">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <a href="<?= $router->generate('ingredient-add') ?>" class="btn btn-warning float-end" role="button">Créer un nouvel ingrédient</a> 
+            <a href="<?= $router->generate('admin-ingredient-add') ?>" class="btn btn-warning float-end" role="button">Créer un nouvel ingrédient</a> 
         </div>
         <form method="POST" action="">
             <div class="mb-3 ingrédient">

@@ -7,4 +7,9 @@ class MainController extends CoreController
     {
         $this->show("main/home");
     }
+
+    public function admin()
+    {
+        $this->show("main/admin-home");
+    }
 }
