@@ -74,7 +74,7 @@ class Category extends CoreModel
         return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'App\Models\Category');
     }
 
-    public function find($id)
+    public static function find($id)
     {
 
     }

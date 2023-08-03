@@ -139,9 +139,22 @@ class Recipe extends CoreModel
         
     }
 
+    /**
+     * Permet de récupérer une recette en fonction de son id en DB
+     * 
+     * @param int $id identifiant de la recette
+     * @return Recipe
+     */
     public function find($id)
     {
+        $pdo = Database::getPDO();
+        $sql = "SELECT `id`, `title`, `portions`, `rate`, `instructions`, `category_id`, `picture`, `created_at`, `updated_at` 
+        FROM `recipe`
+        WHERE `id` = $id";
+        $pdoStatement = $pdo->query($sql);
+        $result = $pdoStatement->fetchObject('App\Models\Product');
 
+        return $result;
     }
 
     public function insert()

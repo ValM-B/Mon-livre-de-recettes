@@ -127,7 +127,10 @@ button.navbar-toggler,
     font-weight: bold;
 
 }
-
+.category-recipes a {
+    text-decoration: none;
+    
+}
 .card{
     box-shadow: 1px 1px 5px rgb(170, 170, 170);
     border: none;
