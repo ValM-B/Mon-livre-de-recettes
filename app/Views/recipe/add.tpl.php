@@ -1,16 +1,26 @@
 <main>
     <h1 class="display-1 home-title">Ajouter une recette</h1>
-    <div class="container col-md-6">
+    <div class="container">
         <div class="card card-category mt-4 p-4 ">
             <div class="row justify-content-center">
-                <form class="col-sm-8" action="" method="POST">
-                    <div class="form-group">
+                <form class="col-sm-8" method="POST" action="">
+                    <div class="mb-3 recipeName">
                         <label for="recipeName">Nom</label>
-                        <input type="text" class="form-control" id="recipeName"  placeholder="Nom de la recette">
+                        <input type="text" name="name" class="form-control" id="recipeName"  placeholder="Nom de la recette" 
+                        <?php
+                        if(isset($_SESSION["name"])){?>
+                            value="<?=$_SESSION["name"]?>"
+                
+                        <?php
+                        }
+                        ?>    
+                        >
                     </div>
-                    <div class="form-group">
+                    <div class="mb-3 portions">
                         <label for="portions">Nombre de parts</label>
-                        <input type="number" name="rate" class="form-control" id="portions" placeholder="Nombre de parts">
+                        <input type="number" name="portions" class="form-control" id="portions" placeholder="Nombre de parts">
+                           
+                        
                     </div>
                     <div class="mb-3 categoryId">
                     <label for="category_id" class="form-label">Categorie</label>
@@ -21,8 +31,27 @@
                     
                     </select>
                     </div>
+
+                   
+                    <div class="mb-3 ingrédients">
+                        <label for="ingrédients">Ingrédients</label>
+                        <textarea name="ingrédients" class="form-control" id="ingrédients" placeholder="Liste des ingrédients" rows="10"><?php
+                        if(isset($_SESSION["ingrédients"])){?><?=$_SESSION["ingrédients"]?>
+                        <?php
+                        }
+                        ?></textarea>
+                    </div>
+                    <div class="mb-3 instructions">
+                        <label for="instructions">Instructions</label>
+                        <textarea name="instructions" class="form-control" id="instructions" placeholder="Instructions" rows="10"><?php
+                        if(isset($_SESSION["instructions"])){?><?=$_SESSION["instructions"]?>
+                        <?php
+                        }
+                        ?></textarea>
+                    </div>
+                   
                     
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" value="validate" name="submit">Submit</button>
                 </form>
             </div>
         </div>

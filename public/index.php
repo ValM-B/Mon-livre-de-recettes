@@ -207,47 +207,6 @@ $router->map(
     'admin-category-add'
 );
 
-/* INGREDIENT */ 
-
-$router->map(
-    'GET',
-    '/admin/ingredient',
-    [
-    'controller' => 'App\Controllers\Backoffice\IngredientController',
-    'method' => 'browse'
-    ],
-    'admin-ingredient-browse'
-);
-
-$router->map(
-    'GET',
-    '/admin/ingredient/add',
-    [
-    'controller' => '\App\Controllers\Backoffice\IngredientController',
-    'method' => 'add'
-    ],
-    'admin-ingredient-add'
-);
-
-$router->map(
-    'POST',
-    '/admin/ingredient/add',
-    [
-    'controller' => '\App\Controllers\Backoffice\IngredientController',
-    'method' => 'addExecute'
-    ],
-    'admin-ingredient-addExecute'
-);
-
-$router->map(
-    'GET',
-    '/admin/ingredient/edit/[i:id]',
-    [
-    'controller' => '\App\Controllers\Backoffice\IngredientController',
-    'method' => 'edit'
-    ],
-    'admin-ingredient-edit'
-);
 
 /* ------------
 --- DISPATCH ---

@@ -9,6 +9,7 @@ class Recipe extends CoreModel
     private $title;
     private $portions;
     private $rate;
+    private $ingredients;
     private $instructions;
     private $category_id;
     private $picture;
@@ -127,9 +128,30 @@ class Recipe extends CoreModel
      *
      * @return  self
      */ 
-    public function setPortons($portions) : self
+    public function setPortions($portions) : self
     {
         $this->portions = $portions;
+
+        return $this;
+    }
+
+    
+    /**
+     * Get the value of ingredients
+     */ 
+    public function getIngredients()
+    {
+        return $this->ingredients;
+    }
+
+    /**
+     * Set the value of ingredients
+     *
+     * @return  self
+     */ 
+    public function setIngredients($ingredients)
+    {
+        $this->ingredients = $ingredients;
 
         return $this;
     }
@@ -145,14 +167,14 @@ class Recipe extends CoreModel
      * @param int $id identifiant de la recette
      * @return Recipe
      */
-    public function find($id)
+    public static function find($id)
     {
         $pdo = Database::getPDO();
-        $sql = "SELECT `id`, `title`, `portions`, `rate`, `instructions`, `category_id`, `picture`, `created_at`, `updated_at` 
+        $sql = "SELECT `id`, `title`, `portions`, `ingredients`, `rate`, `instructions`, `category_id`, `picture`, `created_at`, `updated_at` 
         FROM `recipe`
         WHERE `id` = $id";
         $pdoStatement = $pdo->query($sql);
-        $result = $pdoStatement->fetchObject('App\Models\Product');
+        $result = $pdoStatement->fetchObject('App\Models\Recipe');
 
         return $result;
     }
@@ -192,4 +214,5 @@ class Recipe extends CoreModel
 
         return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'App\Models\Recipe');
     }
+
 }

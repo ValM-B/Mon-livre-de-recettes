@@ -18,7 +18,7 @@ font-family: 'Ysabeau Infant', sans-serif;*/
 }
 
 body{
-    background-image: var(--gradient), url(../images/_7b5c2d4b-a7a4-4c13-80f3-233223c91ae8.jpg);
+    /* background-image: var(--gradient), url(../images/_7b5c2d4b-a7a4-4c13-80f3-233223c91ae8.jpg); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 60%;
@@ -28,9 +28,9 @@ body{
    
 }
 
-.recipe{
+/* .recipe{
     background-image: var(--gradient-recipe), url(../images/brioche-butchy-1.jpg);
-}
+} */
 
 
 h1{

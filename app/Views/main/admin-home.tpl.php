@@ -90,8 +90,8 @@
     
             </div>
         </div>
-        <div class="container row">
-            <div class="card card-category mt-4 p-4 col-6">
+        <div class="container">
+            <div class="card card-category mt-4 p-4">
                 <h2>Liste des catégories</h2>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <a href="<?= $router->generate('admin-category-add') ?>" class="btn btn-warning float-end" role="button">Ajouter</a> 
@@ -127,47 +127,9 @@
                     </tbody>
                 </table>
                 <div class="d-grid gap-2 d-md-flex justify-content-center">
-                <a href="<?= $router->generate('admin-category-browse') ?>" class="btn btn-warning float-end" role="button">Voir toutes les catégories</a> 
-    
+                    <a href="<?= $router->generate('admin-category-browse') ?>" class="btn btn-warning float-end" role="button">Voir toutes les catégories</a> 
+                </div>
             </div>
-            </div>
-            <div class="card card-category mt-4 p-4 col-6">
-                <h2>Liste des ingrédients</h2>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="<?= $router->generate('admin-ingredient-add') ?>" class="btn btn-warning float-end" role="button">Ajouter</a> 
-    
-            </div>
-            
-            <table class="table table-striped" id="table-striped">
-                <thead>
-                    <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Unité</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Sucre</td>
-                    <td>g</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>farine</td>
-                    <td>g</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td>Lait</td>
-                    <td>ml</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="d-grid gap-2 d-md-flex justify-content-center">
-                <a href="<?= $router->generate('admin-ingredient-browse') ?>" class="btn btn-warning float-end" role="button">Voir tous les ingrédients</a> 
-    
-            </div>
-        </div>
+        
         </div>
     </div>
