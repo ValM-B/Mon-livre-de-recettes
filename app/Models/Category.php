@@ -74,6 +74,23 @@ class Category extends CoreModel
         return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'App\Models\Category');
     }
 
+        /**
+     * Permet la récupération les 5 dernières categories crées en DB
+     * 
+     * 
+     * @return Category[]
+     */
+    public static function findLast5()
+    {
+        $pdo = Database::getPDO();
+        $sql = "SELECT `id`, `name`, `family`, `created_at`, `updated_at` 
+        FROM `category`
+        ORDER BY `created_at` DESC
+        LIMIT 5";
+        $pdoStatement = $pdo->query($sql);
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'App\Models\Category');
+    }
+
     public static function find($id)
     {
 

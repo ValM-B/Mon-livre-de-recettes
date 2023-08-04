@@ -15,7 +15,10 @@ class RecipeController extends CoreController
 
     public function add()
     {
-        $this->show("recipe/add");
+        $categories = Category::findAll();
+        $this->show("recipe/add", [
+            "categories" => $categories
+        ]);
     }
 
     public function addExecute()
@@ -25,7 +28,12 @@ class RecipeController extends CoreController
 
     public function edit($id)
     {
-        $this->show("recipe/edit");
+        $recipeToUpdate = Recipe::find($id);
+        $categories = Category::findAll();
+        $this->show("recipe/add", [
+            "recipeToUpdate" => $recipeToUpdate,
+            "categories" => $categories
+        ]);
     }
 
     public function editExecute($id)

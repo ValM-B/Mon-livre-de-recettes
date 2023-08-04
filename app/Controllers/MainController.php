@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 
+use App\Models\Category;
 use App\Models\Recipe;
 
 class MainController extends CoreController
@@ -15,7 +16,11 @@ class MainController extends CoreController
 
     public function admin()
     {
-
-        $this->show("main/admin-home");
+        $lastRecipes = Recipe::findLast5();
+        $lastCategories = Category::findLast5();
+        $this->show("main/admin-home", [
+            'lastRecipes' => $lastRecipes,
+            'lastCategories' => $lastCategories
+        ]);
     }
 }
