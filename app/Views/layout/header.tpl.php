@@ -12,12 +12,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Raleway&family=Ysabeau+Infant&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="<?=$assetsBaseUri?>Trumbowyg-main/Trumbowyg-main/dist/ui/trumbowyg.min.css">
 	<style>
 		body{
 			<?php if(isset($viewData["body-class-name"])){?>
 					background-image: var(--gradient-recipe), url(<?= $recipe->getPicture() ?>);
 			<?php } else { ?>
-				background-image: var(--gradient), url(<?=$assetsBaseUri?>php -S images/_7b5c2d4b-a7a4-4c13-80f3-233223c91ae8.jpg);
+				background-image: var(--gradient), url(<?=$assetsBaseUri?>images/_7b5c2d4b-a7a4-4c13-80f3-233223c91ae8.jpg);
 			<?php } ?>
 		}
 		

@@ -32,14 +32,12 @@
                     </select>
                     </div>
 
-                   
+
                     <div class="mb-3 ingrédients">
                         <label for="ingrédients">Ingrédients</label>
-                        <textarea name="ingrédients" class="form-control" id="ingrédients" placeholder="Liste des ingrédients" rows="10"><?php
-                        if(isset($_SESSION["ingrédients"])){?><?=$_SESSION["ingrédients"]?>
-                        <?php
-                        }
-                        ?></textarea>
+                        <textarea name="ingrédients" class="form-control" id="ingredients" placeholder="Liste des ingrédients" rows="10">
+                        </textarea>
+                    
                     </div>
                     <div class="mb-3 instructions">
                         <label for="instructions">Instructions</label>
@@ -49,7 +47,7 @@
                         }
                         ?></textarea>
                     </div>
-                   
+
                     
                     <button type="submit" class="btn btn-primary" value="validate" name="submit">Submit</button>
                 </form>

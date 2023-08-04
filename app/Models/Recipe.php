@@ -156,9 +156,37 @@ class Recipe extends CoreModel
         return $this;
     }
 
+    /**
+     * Permet la récupération de toutes les recettes en db
+     * 
+     * @param string $sort nom du champ sur lequel la liste doit etre triée
+     * @return Recipe[]
+     */
     public static function findAll($sort ="")
     {
-        
+        $pdo = Database::getPDO();
+        $sql = "SELECT `id`, `title`, `portions`, `ingredients`, `rate`, `instructions`, `category_id`, `picture`, `created_at`, `updated_at` 
+        FROM `recipe`
+        ORDER BY $sort";
+        $pdoStatement = $pdo->query($sql);
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'App\Models\Recipe');
+    }
+
+        /**
+     * Permet la récupération les 5 dernière recettes crées en DB
+     * 
+     * 
+     * @return Recipe[]
+     */
+    public static function findLast5()
+    {
+        $pdo = Database::getPDO();
+        $sql = "SELECT `id`, `title`, `portions`, `ingredients`, `rate`, `instructions`, `category_id`, `picture`, `created_at`, `updated_at` 
+        FROM `recipe`
+        ORDER BY `created_at` DESC
+        LIMIT 5";
+        $pdoStatement = $pdo->query($sql);
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'App\Models\Recipe');
     }
 
     /**
