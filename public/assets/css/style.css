@@ -114,7 +114,10 @@ button.navbar-toggler,
     
 }
 
-
+.rate .rateCupcake{
+    width: 45px;
+    display: inline;
+}
 
 .category-recipes{
     margin: auto 2rem;

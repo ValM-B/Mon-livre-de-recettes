@@ -13,6 +13,20 @@
                     
                         <div class="col-md-6">
                         <h2 class="text-center">Ingrédients pour <?= $recipe->getPortions(); ?> personnes</h2>
+                        <div class="rate text-center">
+                            <?php
+                            for ($i=1; $i < 6; $i++) { 
+                                if($i<=$recipe->getRate()){?>
+                                    <img src="<?=$assetsBaseUri?>images/cupcake-couleur.gif" alt="" class="rateCupcake">
+                                <?php } else { ?>
+                                    <img src="<?=$assetsBaseUri?>images/cupcake-gris.gif" alt="" class="rateCupcake">
+                                <?php
+                                }
+                            }
+                            ?>
+                             
+                        </div>
+                       
                             <?= $recipe->getIngredients(); ?>
                         </div>
                         
