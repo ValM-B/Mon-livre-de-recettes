@@ -22,6 +22,13 @@
 		}
 		
 	</style>
+	<script src="<?=$assetsBaseUri?>tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+	<script>
+      tinymce.init({
+        selector: '#mytextarea',
+		plugins: 'lists'
+      });
+    </script>
 
 	<title>Le cupcake enchanté</title>
 </head>

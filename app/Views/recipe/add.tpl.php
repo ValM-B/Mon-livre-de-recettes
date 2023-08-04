@@ -35,7 +35,7 @@
                    
                     <div class="mb-3 ingrédients">
                         <label for="ingrédients">Ingrédients</label>
-                        <textarea name="ingrédients" class="form-control" id="ingrédients" placeholder="Liste des ingrédients" rows="10"><?php
+                        <textarea name="ingrédients" class="form-control" id="mytextarea" placeholder="Liste des ingrédients" rows="10"><?php
                         if(isset($_SESSION["ingrédients"])){?><?=$_SESSION["ingrédients"]?>
                         <?php
                         }
