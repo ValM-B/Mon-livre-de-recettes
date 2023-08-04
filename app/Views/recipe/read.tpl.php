@@ -13,18 +13,14 @@
                     
                         <div class="col-md-6">
                         <h2 class="text-center">Ingrédients pour <?= $recipe->getPortions(); ?> personnes</h2>
-                        <?= $recipe->getIngredients(); ?>
-                        <!-- <ul class="ingredient">
-                            <li>Pommes de terre</li>
-                            <li>Oignons</li>
-                            <li>Beurre</li>
-                            <li>Crème fraîche</li>
-                            <li>Fromage râpé</li>
-                            <li>Sel</li>
-                            <li>Poivre</li>
-                            <li>Persil</li>
-                            <li>Chapelure</li>
-                        </ul> -->
+                            <ul class="ingredients">
+                                <?php
+                                foreach ($ingredients as $ingredient) : ?>
+                                    <li><?= $ingredient ?></li>
+                                <?php
+                                endforeach;
+                                ?>
+                            </ul>
                         </div>
                         
                     </div>

@@ -17,7 +17,7 @@
 			<?php if(isset($viewData["body-class-name"])){?>
 					background-image: var(--gradient-recipe), url(<?= $recipe->getPicture() ?>);
 			<?php } else { ?>
-				background-image: var(--gradient), url(<?=$assetsBaseUri?>images/_7b5c2d4b-a7a4-4c13-80f3-233223c91ae8.jpg);
+				background-image: var(--gradient), url(<?=$assetsBaseUri?>php -S images/_7b5c2d4b-a7a4-4c13-80f3-233223c91ae8.jpg);
 			<?php } ?>
 		}
 		
