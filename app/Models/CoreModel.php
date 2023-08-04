@@ -74,4 +74,17 @@ abstract class CoreModel
     abstract public function insert();
     abstract public function update($id);
     abstract public function delete($id);
+
+    public function save()
+    {
+        
+        if (is_null($this->id))
+        {
+            return $this->insert();
+        }
+        else
+        {
+            return $this->update($this->getId());
+        }
+    }
 }

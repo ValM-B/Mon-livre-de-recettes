@@ -13,14 +13,7 @@
                     
                         <div class="col-md-6">
                         <h2 class="text-center">Ingrédients pour <?= $recipe->getPortions(); ?> personnes</h2>
-                            <ul class="ingredients">
-                                <?php
-                                foreach ($ingredients as $ingredient) : ?>
-                                    <li><?= $ingredient ?></li>
-                                <?php
-                                endforeach;
-                                ?>
-                            </ul>
+                            <?= $recipe->getIngredients(); ?>
                         </div>
                         
                     </div>

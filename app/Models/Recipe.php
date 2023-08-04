@@ -207,9 +207,38 @@ class Recipe extends CoreModel
         return $result;
     }
 
+    /**
+     * Permet d'ajouter une recette en DB
+     * 
+     * @return bool
+     */
     public function insert()
     {
-        
+        $pdo = Database::getPDO();
+        $sql = "
+        INSERT INTO `recipe` (`title`, `portions`, `ingredients`, `rate`, `instructions`, `category_id`, `picture`)
+        VALUES (:title, :portions, :ingredients, :rate, :instructions, :category_id, :picture)
+        ";
+
+        $preparedQuery = $pdo->prepare($sql);
+
+        $querySuccess = $preparedQuery->execute([
+            ':title' => $this->title,
+            ':portions' => $this->portions,
+            ':ingredients' => $this->ingredients,
+            ':rate' => $this->rate,
+            ':instructions' => $this->instructions,
+            ':category_id' => $this->category_id,
+            ':picture' => $this->picture
+        ]);
+
+        if ($querySuccess) {
+            
+            $this->id = $pdo->lastInsertId();
+            
+            return true;
+        }
+        return false;
     }
 
     public function update($id)
