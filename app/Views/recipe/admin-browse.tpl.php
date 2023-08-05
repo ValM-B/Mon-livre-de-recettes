@@ -9,79 +9,35 @@
                 <thead>
                     <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Titre</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td class="text-end">
-                        <a href="<?= $router->generate('admin-recipe-edit', ['id' => 1]) ?>" class="btn btn-sm btn-warning">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a>
-                        <!-- Example single danger button -->
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-warning dropdown-toggle"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Oui, je veux supprimer</a>
-                                <a class="dropdown-item" href="#" data-toggle="dropdown">Oups !</a>
-                            </div>
-                        </div>
-                    </td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td class="text-end">
-                        <a href="#" class="btn btn-sm btn-warning">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a>
-                        <!-- Example single danger button -->
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-warning dropdown-toggle"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Oui, je veux supprimer</a>
-                                <a class="dropdown-item" href="#" data-toggle="dropdown">Oups !</a>
-                            </div>
-                        </div>
-                    </td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td class="text-end">
-                        <a href="#" class="btn btn-sm btn-warning">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a>
-                        <!-- Example single danger button -->
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-warning dropdown-toggle"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Oui, je veux supprimer</a>
-                                <a class="dropdown-item" href="#" data-toggle="dropdown">Oups !</a>
-                            </div>
-                        </div>
-                    </td>
-                    </tr>
-                    
+                    <?php
+                    foreach ($recipes as $recipe) :?>
+                        <tr>
+                            <th scope="row"><?= $recipe->getId(); ?></th>
+                            <td><?= $recipe->getTitle() ?></td>
+                            <td class="text-end">
+                                <a href="<?= $router->generate('admin-recipe-edit', ['id' => $recipe->getId()]) ?>" class="btn btn-sm btn-warning">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </a>
+                                
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-warning dropdown-toggle"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Oui, je veux supprimer</a>
+                                        <a class="dropdown-item" href="#" data-toggle="dropdown">Oups !</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php
+                    endforeach;
+                    ?>
                 </tbody>
             </table>
         </div>

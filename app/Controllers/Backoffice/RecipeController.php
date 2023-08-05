@@ -10,7 +10,10 @@ class RecipeController extends CoreController
     
     public function browse()
     {
-        $this->show("recipe/admin-browse");
+        $recipes = Recipe::findAll("created_at");
+        $this->show("recipe/admin-browse", [
+            "recipes" => $recipes
+        ]);
     }
 
     public function add()
@@ -98,39 +101,66 @@ class RecipeController extends CoreController
 
     public function editExecute($id)
     {
-        
-        if(isset($_POST["submit"])){
-            
+        $title = filter_input(INPUT_POST, 'title');
+        $portions = filter_input(INPUT_POST, 'portions', FILTER_VALIDATE_INT);
+        $category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
+        $ingredients = filter_input(INPUT_POST, 'ingredients');
+        $instructions = filter_input(INPUT_POST, 'instructions');
+        $rate = filter_input(INPUT_POST, 'rate', FILTER_VALIDATE_INT);
+        $picture = filter_input(INPUT_POST, 'picture', FILTER_VALIDATE_URL);
 
-            $submit = $_POST["submit"];
-            var_dump($submit);
+        $errorList = [];
 
-            if($submit === "validate"){
-                unset($_SESSION['name']);
-                unset($_SESSION['portions']);
-                unset($_SESSION['categoryId']);
-                unset($_SESSION['instructions']);
-                unset($_SESSION['id']);
-                
-                $this->redirectToRoute('admin-recipe-browse');
-
-            } else {
-                        
-            $_SESSION['name'] = filter_input(INPUT_POST, 'name');
-            $_SESSION['portions'] = filter_input(INPUT_POST, 'portions');
-            $_SESSION['categoryId'] = filter_input(INPUT_POST, 'category_id');
-            $_SESSION['instructions'] = filter_input(INPUT_POST, 'instructions');
-            $_SESSION['id'] = $id;
-
-                if($submit === "addIngredient"){
-                    $this->redirectToRoute('admin-recipe-edit-addIngredient');
-                } else {
-                    global $router;
-                    header('Location: ' . $router->generate('admin-recipe-edit-editIngredient',["idRecipe" => $id, "idIngredient" => $submit]));
-                }
-            
-            }
+        if(empty($title) || empty($portions) || $category_id == 0 || empty($ingredients) || empty($instructions) || empty($rate) || empty($picture)){
+            $errorList[] = "Merci de remplir tous les champs";
         }
+
+        if(!$portions){
+            $errorList[] = "Le nombre de parts doit etre un nombre entier";
+        }
+        if(!$category_id){
+            $errorList[] = "Veuillez sélectionner une catégorie dans la liste";
+        }
+        if(!$rate){
+            $errorList[] = "Le note doit être un chiffre entier entre 0 et 5";
+        }
+        if(!$picture){
+            $errorList[] = "Veuillez remplir un url valide";
+        }
+
+        $recipeToUpdate = Recipe::find($id);
+        $recipeToUpdate->setTitle($title);
+        $recipeToUpdate->setPortions($portions);
+        $recipeToUpdate->setCategory_id($category_id);
+        $recipeToUpdate->setIngredients($ingredients);
+        $recipeToUpdate->setInstructions($instructions);
+        $recipeToUpdate->setRate($rate);
+        $recipeToUpdate->setPicture($picture);
+
+        if(!empty($errorList)){
+            $categories = Category::findAll();
+            $this->show("recipe/add", [
+                "recipe" => $recipeToUpdate,
+                "errorList" => $errorList,
+                "categories" => $categories
+            ]);
+            exit;
+        }
+
+        if (! $recipeToUpdate->save())
+        {
+            $errorList[] = "Une erreur s'est produite lors de l'enregitrement de la recette. Veuillez réessayer.";
+            $categories = Category::findAll();
+            $this->show("recipe/add", [
+                "recipe" => $recipeToUpdate,
+                "errorList" => $errorList,
+                "categories" => $categories
+            ]);
+            exit;
+        }
+
+        $this->redirectToRoute("admin-recipe-browse");
+        
     }
 
     public function addIngredient(){
@@ -157,4 +187,5 @@ class RecipeController extends CoreController
         global $router;
         header('Location: ' . $router->generate('admin-recipe-edit',["id" => $idRecipe]));
     }
+
 }

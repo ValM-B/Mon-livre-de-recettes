@@ -243,7 +243,30 @@ class Recipe extends CoreModel
 
     public function update($id)
     {
+        $pdo = Database::getPDO();
+        $sql = " UPDATE `recipe`
+                SET `title` = :title,
+                `portions` = :portions,
+                `ingredients` = :ingredients,
+                `rate` = :rate,
+                `instructions` = :instructions,
+                `category_id` = :category_id,
+                `picture` = :picture,
+                updated_at = now()
+                WHERE id = :id";
 
+        $preparedQuery = $pdo->prepare($sql);
+        $querySuccess = $preparedQuery->execute([
+            ':title' => $this->title,
+            ':portions' => $this->portions,
+            ':ingredients' => $this->ingredients,
+            ':rate' => $this->rate,
+            ':instructions' => $this->instructions,
+            ':category_id' => $this->category_id,
+            ':picture' => $this->picture,
+            ':id'=> $this->id
+        ]);
+        return $querySuccess;
     }
 
     public function delete($id)

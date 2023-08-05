@@ -17,9 +17,9 @@
                             <?php
                             for ($i=1; $i < 6; $i++) { 
                                 if($i<=$recipe->getRate()){?>
-                                    <img src="<?=$assetsBaseUri?>images/cupcake-couleur.gif" alt="" class="rateCupcake">
+                                    <img src="<?=$assetsBaseUri?>images/cupcake-couleur.gif" alt="" class="rateCupcake d-inline">
                                 <?php } else { ?>
-                                    <img src="<?=$assetsBaseUri?>images/cupcake-gris.gif" alt="" class="rateCupcake">
+                                    <img src="<?=$assetsBaseUri?>images/cupcake-gris.gif" alt="" class="rateCupcake d-inline">
                                 <?php
                                 }
                             }
