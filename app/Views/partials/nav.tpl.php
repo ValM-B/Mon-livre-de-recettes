@@ -12,31 +12,36 @@
                     </a>
                     <ul class="dropdown-menu">
                         <?php
-                        foreach ($categoryList as $category) : 
-                            if($category->getFamily() === "patisserie"){?>
-                            <li><a class="dropdown-item" href="<?= $router->generate('recipe-browse-category', ['id' => $category->getId()]) ?>"><?=$category->getName()?></a></li>
+                        foreach ($categoryList as $categorya) : 
+                            if($categorya->getFamily() === "patisserie"){?>
+                            <li><a class="dropdown-item" href="<?= $router->generate('recipe-browse-category', ['id' => $categorya->getId()]) ?>"><?=$categorya->getName()?></a></li>
                         <?php
                             }
                         endforeach;
+                        
                         ?>
                     </ul>
                 </li>
-                <?php
-                    foreach ($categoryList as $category) : 
-                        if($category->getFamily() === "autre"){?>
-                        <li class="nav-item"><a class="nav-link" href="<?= $router->generate('recipe-browse-category', ['id' => $category->getId()]) ?>"><?=$category->getName()?></a></li>
+                <?php 
+                    foreach ($categoryList as $categoryb) : 
+                        if($categoryb->getFamily() === "autre"){?>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= $router->generate('recipe-browse-category', ['id' => $categoryb->getId()]) ?>"><?=$categoryb->getName()?></a>
+                        </li>
                 <?php
                         }
                     endforeach;
+                    
                 ?>
                 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Boulange</a>
                     <ul class="dropdown-menu">
                         <?php
-                        foreach ($categoryList as $category) : 
-                            if($category->getFamily() === "boulange"){?>
-                            <li><a class="dropdown-item" href="<?= $router->generate('recipe-browse-category', ['id' => $category->getId()]) ?>"><?=$category->getName()?></a></li>
+                        foreach ($categoryList as $categoryc) : 
+                            if($categoryc->getFamily() === "boulange"){?>
+                            <li><a class="dropdown-item" href="<?= $router->generate('recipe-browse-category', ['id' => $categoryc->getId()]) ?>"><?=$categoryc->getName()?></a></li>
                         <?php
                                 }
                             endforeach;

@@ -1,6 +1,7 @@
 <main>
+
 <h1 class="display-1 home-title">
-        <?php echo isset($recipeToUpdate) ? "Modifier une catégorie" : "Ajouter une catégorie";?>
+        <?php echo isset($categoryToUpdate) ? "Modifier une catégorie" : "Ajouter une catégorie";?>
     </h1>
     <div class="container">
         <div class="card card-category mt-4 p-4">
@@ -16,9 +17,9 @@
         <form method="post" action="">
             <div class="form-group">
                 <label for="categoryName">Nom</label>
-                <input type="text" class="form-control" id="categoryName"  placeholder="Nom de la catégorie" name="name">
+                <input type="text" class="form-control" id="categoryName"  placeholder="Nom de la catégorie" name="name"  value='<?php echo isset($category1) ? $category1->getName() : "" ?>' >
                 <label for="categoryFamily">Famille</label>
-                <input type="text" class="form-control" id="categoryFamily"  placeholder="Nom de la catégorie" name="family">
+                <input type="text" class="form-control" id="categoryFamily"  placeholder="Famille de la catégorie" name="family"  value='<?php echo isset($category1) ? $category1->getFamily() : "" ?>' >
             </div>
             
             <button type="submit" class="btn btn-primary">Enregistrer</button>

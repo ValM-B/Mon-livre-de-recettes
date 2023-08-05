@@ -55,4 +55,14 @@ class CategoryController extends CoreController
 
         $this->redirectToRoute("admin-category-browse");
     }
+
+    public function edit($id)
+    {
+        $category = Category::find($id);
+        var_dump($category);
+        $this->show("category/add", [
+            "categoryToUpdate" => true,
+            "category1" => $category,
+        ]);
+    }
 }

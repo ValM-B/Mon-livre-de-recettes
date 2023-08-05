@@ -93,7 +93,12 @@ class Category extends CoreModel
 
     public static function find($id)
     {
-
+        $pdo = Database::getPDO();
+        $sql = "SELECT `id`, `name`, `family`, `created_at`, `updated_at` 
+        FROM `category`
+        WHERE `id` = $id";
+        $pdoStatement = $pdo->query($sql);
+        return $pdoStatement->fetchObject('App\Models\Category');
     }
 
     public function insert()

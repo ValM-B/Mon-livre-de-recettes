@@ -22,14 +22,5 @@ class CategoryController extends CoreController
         $this->show("category/read");
     }
 
-    public function adminBrowse()
-    {
-        $this->show("category/admin-browse");
-    }
 
-    public function add()
-    {
-        $this->show("category/add");
-    }
-    
 }

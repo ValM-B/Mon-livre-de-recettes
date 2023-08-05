@@ -1,4 +1,5 @@
 <main>
+
     <h1 class="display-1 home-title">Liste des catégories</h1>
     <div class="container">
         <div class="card card-category mt-4 p-4">
