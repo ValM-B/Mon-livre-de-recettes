@@ -32,7 +32,5 @@
         <?php 
 		
 		require_once __DIR__ . "/../partials/nav.tpl.php"?>
-		<?php
-		var_dump($categoryb);
-		?>
+		
     </header>

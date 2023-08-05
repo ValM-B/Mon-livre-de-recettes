@@ -226,4 +226,6 @@ $match = $router->match();
 
 $dispatcher = new Dispatcher($match, '\App\Controllers\ErrorController::error404');
 
+$dispatcher->setControllersArguments($match, $router);
+
 $dispatcher->dispatch();

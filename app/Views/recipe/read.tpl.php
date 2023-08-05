@@ -24,9 +24,9 @@
                                 }
                             }
                             ?>
-                             
+                            
                         </div>
-                       
+                    
                             <?= $recipe->getIngredients(); ?>
                         </div>
                         

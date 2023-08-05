@@ -5,12 +5,60 @@ use App\Models\Category;
 
 class CoreController
 {
+    private $router;
+
+    public function __construct($match, $routerFromAltoDispatcher)
+    {
+        $this->router = $routerFromAltoDispatcher;
+        // le tableau match fournit par altoRouter dans le FC
+        // contient l'id de la route
+        // global $match;
+
+        // lorsque l'on affiche une page 404, match vaut false
+        // if (is_array($match))
+        // {
+        //     $currentRouteId = $match['name'];
+        //     // définition des ACCESS CONTROL LIST ( liste contrôle d'accès )
+        //     // ici on définit les roles pour toutes les pages que l'on souhaite sécuriser
+        //     require_once __DIR__ . '/../acl.php';
+    
+        //     // si une page n'apparait pas dans ce tableau, elle ne sera pas sécurisée
+        //     if (array_key_exists($currentRouteId, $acl))
+        //     {
+        //         $rolesToCheck = $acl[$currentRouteId];
+        //         $this->checkAuthorization($rolesToCheck);
+        //     }
+
+        //     // TODO centraliser la validation des token csrf ( prononcé sea surf )
+        //     $postCSRF = [
+        //         'category-editHomeOrderExecute',
+        //     ];
+        //     if (array_key_exists($currentRouteId, $postCSRF))
+        //     {
+        //         // vérifier le token csrf
+        //         if (! array_key_exists('csrf-token', $_POST))
+        //         {
+        //             // TODO afficher une page d'erreur non autorisé
+        //             die('petit malandrin');
+        //         }
+        //         if ($_POST['csrf-token'] !== $_SESSION['csrf-token'])
+        //         {
+        //             die('petit malandrin tu te crois malin');
+        //         }
+        //     }
+        // }
+    }
+
+    public function setRouter($router)
+    {
+        $this->router = $router;
+    }
+
     protected function show ($viewName, $viewData = [])
     {
+        $router = $this->router;
+
         $viewData["categoryList"] = Category::findAll("name");
-        
-        //! A supprimer quand je pourrai
-        global $router;
 
         $viewData['currentPage'] = $viewName;
 
@@ -33,8 +81,8 @@ class CoreController
      */
     protected function redirectToRoute($routeName)
     {
-        global $router;
-        // une fois le formulaire traité on redirige l'utilisateur
+        $router = $this->router;
+        
         header('Location: ' . $router->generate($routeName));
     }
 
