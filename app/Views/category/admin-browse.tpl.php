@@ -9,30 +9,39 @@
                 <thead>
                     <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Famille</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    </tr>
+                    <?php
+                    
+                    foreach ($categories as $category) :?>
+                        <tr>
+                            <th scope="row"><?= $category->getId() ?></th>
+                            <td><?= $category->getName() ?></td>
+                            <td><?= $category->getFamily() ?></td>
+                            <td class="text-end">
+                                <a href="<?= $router->generate('admin-category-edit', ['id' => $category->getId()]) ?>" class="btn btn-sm btn-warning">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </a>
+                                
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-warning dropdown-toggle"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="<?= $router->generate('admin-category-delete', ['id' => $category->getId()]) ?>">Oui, je veux supprimer</a>
+                                        <a class="dropdown-item" href="#" data-toggle="dropdown">Oups !</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php
+                    endforeach;
+                    ?>
+                 
                 </tbody>
             </table>
         </div>

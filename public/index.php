@@ -178,6 +178,45 @@ $router->map(
     'admin-category-add'
 );
 
+$router->map(
+    'POST',
+    '/admin/category/add',
+    [
+    'controller' => '\App\Controllers\Backoffice\CategoryController',
+    'method' => 'addExecute'
+    ],
+    'admin-category-add-execute'
+);
+
+$router->map(
+    'GET',
+    '/admin/category/edit/[i:id]',
+    [
+    'controller' => '\App\Controllers\Backoffice\CategoryController',
+    'method' => 'edit'
+    ],
+    'admin-category-edit'
+);
+
+$router->map(
+    'POST',
+    '/admin/category/edit/[i:id]',
+    [
+    'controller' => '\App\Controllers\Backoffice\CategoryController',
+    'method' => 'editExecute'
+    ],
+    'admin-category-edit-execute'
+);
+
+$router->map(
+    'GET',
+    '/admin/category/delete/[i:id]',
+    [
+    'controller' => '\App\Controllers\Backoffice\CategoryController',
+    'method' => 'editExecute'
+    ],
+    'admin-category-delete'
+);
 
 /* ------------
 --- DISPATCH ---

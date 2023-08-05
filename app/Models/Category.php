@@ -98,7 +98,26 @@ class Category extends CoreModel
 
     public function insert()
     {
+        $pdo = Database::getPDO();
+        $sql = "
+        INSERT INTO `category` (`name`, `family`)
+        VALUES (:name, :family)
+        ";
 
+        $preparedQuery = $pdo->prepare($sql);
+
+        $querySuccess = $preparedQuery->execute([
+            ':name' => $this->name,
+            ':family' => $this->family,
+        ]);
+
+        if ($querySuccess) {
+            
+            $this->id = $pdo->lastInsertId();
+            
+            return true;
+        }
+        return false;
     }
 
     public function update($id)
