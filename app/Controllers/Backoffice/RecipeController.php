@@ -163,29 +163,11 @@ class RecipeController extends CoreController
         
     }
 
-    public function addIngredient(){
-        $this->show("recipe/add-ingredients");
+    public function delete($id)
+    {
+        Recipe::delete($id);
+        $this->redirectToRoute("admin-recipe-browse");
     }
 
-    public function addIngredientExecute()
-    {
-        global $router;
-        header('Location: ' . $router->generate('admin-recipe-edit',["id" => $_SESSION['id']]));
-        
-    }
-
-    public function editIngredient($idRecipe, $idIngredient)
-    {
-        $this->show("recipe/edit-ingredient", [
-            "idRecipe" => $idRecipe,
-            "idIngredient" => $idIngredient
-        ]);
-    }
-
-    public function editIngredientExecute($idRecipe, $idIngredient)
-    {
-        global $router;
-        header('Location: ' . $router->generate('admin-recipe-edit',["id" => $idRecipe]));
-    }
 
 }

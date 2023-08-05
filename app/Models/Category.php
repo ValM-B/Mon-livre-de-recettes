@@ -106,7 +106,7 @@ class Category extends CoreModel
 
     }
 
-    public function delete($id)
+    public static function delete(int $id)
     {
 
     }

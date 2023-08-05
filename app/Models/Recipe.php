@@ -269,10 +269,26 @@ class Recipe extends CoreModel
         return $querySuccess;
     }
 
-    public function delete($id)
+    /**
+     * Supprime une recette dans la DB en fonction de son id
+     * 
+     * @param int $id Identifiant de la recette à supprimer
+     * @return void
+     */
+    public static function delete(int $id)
     {
-
+        $pdo = Database::getPDO();
+        $sql = "
+            DELETE FROM `recipe` 
+            WHERE `id` = :id";
+        
+        $preparedQuery = $pdo->prepare($sql);
+        
+        $preparedQuery->execute([
+            ':id' => $id,
+        ]);
     }
+
     /**
     * Retourne la liste des recettes d'une catégorie de la DB
     *

@@ -25,14 +25,14 @@
                                         <a href="<?= $router->generate('admin-recipe-edit', ['id' => $recipe->getId()]) ?>" class="btn btn-sm btn-warning">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                         </a>
-                                        <!-- Example single danger button -->
+                                        
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-warning dropdown-toggle"
                                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                                             </button>
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#">Oui, je veux supprimer</a>
+                                                <a class="dropdown-item" href="<?= $router->generate('admin-recipe-delete', ['id' => $recipe->getId()]) ?>">Oui, je veux supprimer</a>
                                                 <a class="dropdown-item" href="#" data-toggle="dropdown">Oups !</a>
                                             </div>
                                         </div>
@@ -73,7 +73,7 @@
                                         <a href="#" class="btn btn-sm btn-warning">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                         </a>
-                                        <!-- Example single danger button -->
+                                        
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-warning dropdown-toggle"
                                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

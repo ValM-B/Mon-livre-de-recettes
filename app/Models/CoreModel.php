@@ -70,10 +70,10 @@ abstract class CoreModel
     }
 
     abstract public static function findAll($sort ="");
-    abstract static public function find($id);
+    abstract public static function find($id);
     abstract public function insert();
     abstract public function update($id);
-    abstract public function delete($id);
+    abstract public static function delete(int $id);
 
     public function save()
     {
