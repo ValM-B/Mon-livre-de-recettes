@@ -1,6 +1,6 @@
 <main>
 
-    <h1 class="display-1 home-title">Liste des catégories</h1>
+    <h2 class="display-1 home-title">Liste des catégories</h2>
     <div class="container">
         <div class="card card-category mt-4 p-4">
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">

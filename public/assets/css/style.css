@@ -26,14 +26,6 @@ body{
     font-family: 'Raleway', sans-serif;
 }
 
-/* .recipe{
-    background-image: var(--gradient-recipe), url(../images/brioche-butchy-1.jpg);
-} */
-
-
-h1{
-    font-family: var(--title-color);
-}
 
 .navbar {
     background-color: var(--bg-color);

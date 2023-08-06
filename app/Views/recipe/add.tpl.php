@@ -1,8 +1,8 @@
 <main>
     <!-- Display the appropriate title based on whether updating a recipe or adding a new one -->
-    <h1 class="display-1 home-title">
+    <h2 class="display-1 home-title">
         <?php echo isset($recipeToUpdate) ? "Modifier une recette" : "Ajouter une recette";?>
-    </h1>
+    </h2>
     <div class="container">
         <div class="card card-category mt-4 p-4 ">
             <div class="row justify-content-center">

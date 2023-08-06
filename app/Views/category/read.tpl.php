@@ -1,5 +1,5 @@
 <main>
-		<h1 class="display-1 home-title">Liste des recettes d'une catégorie</h1>
+		<h2 class="display-1 home-title">Liste des recettes d'une catégorie</h2>
 		<div class="category-recipes row row-cols-1 row-cols-md-3 g-4">
 			<div class="col">
 			<div class="card h-100">

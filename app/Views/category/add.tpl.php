@@ -1,8 +1,8 @@
 <main>
 
-<h1 class="display-1 home-title">
+<h2 class="display-1 home-title">
         <?php echo isset($categoryToUpdate) ? "Modifier une catégorie" : "Ajouter une catégorie";?>
-    </h1>
+    </h2>
     <div class="container">
         <div class="card card-category mt-4 p-4">
             <?php

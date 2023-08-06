@@ -40,6 +40,26 @@ $router->map(
     'admin-home'
 );
 
+$router->map(
+    'GET',
+    '/login',
+    [
+        'controller' => '\App\Controllers\MainController',
+        'method' => 'login'
+    ],
+    'main-login'
+);
+
+$router->map(
+    'POST',
+    '/login',
+    [
+        'controller' => '\App\Controllers\MainController',
+        'method' => 'loginExecute'
+    ],
+    'main-login-execute'
+);
+
 /* RECIPE */ 
 
 $router->map(
