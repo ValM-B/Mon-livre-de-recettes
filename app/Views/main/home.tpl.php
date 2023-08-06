@@ -4,7 +4,7 @@
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <?php
-                               
+                
                 foreach ($lastRecipes as $key => $recipe) :?>
                 
                     <div class="carousel-item <?= $key === 0 ? 'active' : '' ?>" data-bs-interval="3000">
