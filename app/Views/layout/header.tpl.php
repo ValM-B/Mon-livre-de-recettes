@@ -13,24 +13,30 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
 	<link rel="stylesheet" href="<?=$assetsBaseUri?>Trumbowyg-main/Trumbowyg-main/dist/ui/trumbowyg.min.css">
-	<style>
-		body{
-			<?php if(isset($viewData["body-class-name"])){?>
-					background-image: var(--gradient-recipe), url(<?= $recipe->getPicture() ?>);
-			<?php } else { ?>
-				background-image: var(--gradient), url(<?=$assetsBaseUri?>images/_7b5c2d4b-a7a4-4c13-80f3-233223c91ae8.jpg);
-			<?php } ?>
-		}
-		
-	</style>
-
+	<?php
+	
+		if(isset($bodyClassName) && $bodyClassName === "recipe") :
+	?>
+		<style>
+			.recipe{
+				background-image: var(--gradient-recipe), url(<?= $recipe->getPicture() ?>);
+			}
+			
+		</style>
+	<?php
+	endif;
+	?>
 	<title>Le cupcake enchanté</title>
 </head>
 
-<body class="<?php if(isset($viewData["body-class-name"])){ echo $viewData["body-class-name"];}?>">
+<body class="<?php if(isset($bodyClassName)){ echo $bodyClassName;}?>">
 	<header>
         <?php 
-		
-		require_once __DIR__ . "/../partials/nav.tpl.php"?>
+		if(isset($bodyClassName) && $bodyClassName === "admin"){
+			require_once __DIR__."/../partials/nav-admin.tpl.php";
+		} else {
+			require_once __DIR__ . "/../partials/nav.tpl.php";
+		}
+		?>
 		
     </header>

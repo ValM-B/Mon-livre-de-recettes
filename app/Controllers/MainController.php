@@ -20,7 +20,8 @@ class MainController extends CoreController
         $lastCategories = Category::findLast5();
         $this->show("main/admin-home", [
             'lastRecipes' => $lastRecipes,
-            'lastCategories' => $lastCategories
+            'lastCategories' => $lastCategories,
+            'bodyClassName' => "admin"
         ]);
     }
 }

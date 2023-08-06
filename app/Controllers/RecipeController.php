@@ -35,10 +35,10 @@ class RecipeController extends CoreController
      */
     public function read($recipeId){
         $recipe = Recipe::find($recipeId);
-        $bodyClassName = "recipe";
+        
         
         $this->show("recipe/read", [
-            "body-class-name" => $bodyClassName,
+            "bodyClassName" => "recipe",
             "recipe" => $recipe,
             
         ]);

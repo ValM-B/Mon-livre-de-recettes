@@ -145,7 +145,16 @@ class Category extends CoreModel
 
     public static function delete(int $id)
     {
-
+        $pdo = Database::getPDO();
+        $sql = "
+            DELETE FROM `category` 
+            WHERE `id` = :id";
+        
+        $preparedQuery = $pdo->prepare($sql);
+        
+        $preparedQuery->execute([
+            ':id' => $id,
+        ]);
     }
 
 

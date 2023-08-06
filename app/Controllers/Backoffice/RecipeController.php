@@ -12,7 +12,8 @@ class RecipeController extends CoreController
     {
         $recipes = Recipe::findAll("created_at");
         $this->show("recipe/admin-browse", [
-            "recipes" => $recipes
+            "recipes" => $recipes,
+            "bodyClassName" => "admin"
         ]);
     }
 
@@ -20,7 +21,8 @@ class RecipeController extends CoreController
     {
         $categories = Category::findAll();
         $this->show("recipe/add", [
-            "categories" => $categories
+            "categories" => $categories,
+            "bodyClassName" => "admin"
         ]);
     }
 
@@ -95,7 +97,8 @@ class RecipeController extends CoreController
         $this->show("recipe/add", [
             "recipeToUpdate" => true,
             "recipe" => $recipe,
-            "categories" => $categories
+            "categories" => $categories,
+            "bodyClassName" => "admin"
         ]);
     }
 

@@ -10,13 +10,16 @@ class CategoryController extends CoreController
     {
         $categories = Category::findAll();
         $this->show("category/admin-browse", [
-            'categories' => $categories
+            'categories' => $categories,
+            'bodyClassName' => "admin"
         ]);
     }
 
     public function add()
     {
-        $this->show("category/add");
+        $this->show("category/add", [
+            "bodyClassName" => "admin"
+        ]);
     }
     
     public function addExecute()
@@ -62,6 +65,7 @@ class CategoryController extends CoreController
         $this->show("category/add", [
             "categoryToUpdate" => true,
             "category" => $category,
+            "bodyClassName" => "admin"
         ]);
     }
 
@@ -101,4 +105,11 @@ class CategoryController extends CoreController
 
         $this->redirectToRoute("admin-category-browse");
     }
+
+    public function delete($id)
+    {
+        Category::delete($id);
+        $this->redirectToRoute("admin-category-browse");
+    }
+
 }

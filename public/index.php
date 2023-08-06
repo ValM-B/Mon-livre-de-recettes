@@ -213,7 +213,7 @@ $router->map(
     '/admin/category/delete/[i:id]',
     [
     'controller' => '\App\Controllers\Backoffice\CategoryController',
-    'method' => 'editExecute'
+    'method' => 'delete'
     ],
     'admin-category-delete'
 );
