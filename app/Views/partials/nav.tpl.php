@@ -42,6 +42,7 @@
                         <?php
                                 }
                             endforeach;
+                            unset($currentCategory);
                         ?>
                     </ul>
                 </li>
