@@ -137,17 +137,55 @@ class User extends CoreModel
         return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'App\Models\User');
     }
 
+    /**
+     * Récupère un utilisateur en fonction de son id
+     * 
+     * @param $id identifiant de l'utilisateur
+     * @return User
+     */
     public static function find($id)
     {
-        
+        $pdo = Database::getPDO();
+        $sql = "SELECT `id`, `email`, `password`, `name`, `role`, `status`, `created_at`, `updated_at` 
+        FROM user
+        WHERE `id` = $id";
+        $pdoStatement = $pdo->query($sql);
+        return $pdoStatement->fetchObject('App\Models\User');
     }
+
+    /**
+     * Insert un nouvel utilisateur dans la DB
+     * 
+     * @return boolean
+     */
     public function insert()
     {
-        
+        $pdo = Database::getPDO();
+        $sql = "
+        INSERT INTO `user` (`name`, `email`, `password`, `role`, `status`)
+        VALUES (:name, :email, :password, :role, :status)
+        ";
+        $preparedQuery = $pdo->prepare($sql);
+        $querySuccess = $preparedQuery->execute([
+            ':name' => $this->name,
+            ':email' => $this->email,
+            ':password' => $this->password,
+            ':role' => $this->role,
+            ':status' => $this->status,
+        ]);
+
+        if ($querySuccess) {
+            
+            $this->id = $pdo->lastInsertId();
+            
+            return true;
+        }
+        return false;
     }
+
     public function update($id)
     {
-        
+    
     }
     public static function delete(int $id)
     {
