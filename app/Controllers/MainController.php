@@ -58,10 +58,9 @@ var_dump($password);
 
         
         $user = User::findByEmail($email);
-       var_dump($user);
-       
+        
         if(!$user || !password_verify($password, $user->getPassword())){
- 
+
                 $errorList[]='Identifiant ou Mot de passe invalide';
                 $this->show('main/login', [
                     "errorList" => $errorList

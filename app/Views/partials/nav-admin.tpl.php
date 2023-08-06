@@ -15,6 +15,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?= $router->generate("admin-recipe-browse")?>">Recettes</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= $router->generate("admin-user-browse")?>">Utilisateurs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= $router->generate("logout")?>">Se déconnecter</a>
+                </li>
               
             </ul>
            

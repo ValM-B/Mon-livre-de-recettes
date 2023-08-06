@@ -3,6 +3,7 @@ namespace App\Models;
 
 use App\Models\CoreModel;
 use App\Utils\Database;
+use PDO;
 
 class User extends CoreModel
 {
@@ -112,10 +113,30 @@ class User extends CoreModel
         return $this;
     }
 
+    /**
+     * Récupère tous les utilisateurs de la DB
+     * 
+     * @param string (optionnel) nom du champs sur lequel la liste doit etre triée
+     * @return User[]
+     */
     public static function findAll($sort ="")
     {
-        
+        $pdo = Database::getPDO();
+
+        $sql = "SELECT `id`, `email`, `password`, `name`, `role`, `status`, `created_at`, `updated_at` FROM user";
+
+        if($sort !== "") {
+            $sql .= " ORDER BY $sort";
+        }
+
+        $pdoStatement = $pdo->query($sql);
+        if ($pdoStatement === false) {
+            exit("Problème lors de la récupération de la liste des catégories");
+        }
+
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'App\Models\User');
     }
+
     public static function find($id)
     {
         

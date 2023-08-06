@@ -60,6 +60,16 @@ $router->map(
     'main-login-execute'
 );
 
+$router->map(
+    'GET',
+    '/logout',
+    [
+        'controller' => '\App\Controllers\MainController',
+        'method' => 'logout'
+    ],
+    'logout'
+);
+
 /* RECIPE */ 
 
 $router->map(
@@ -236,6 +246,68 @@ $router->map(
     'method' => 'delete'
     ],
     'admin-category-delete'
+);
+
+/* USER */ 
+
+$router->map(
+    'GET',
+    '/admin/user',
+    [
+    'controller' => '\App\Controllers\Backoffice\UserController',
+    'method' => 'browse'
+    ],
+    'admin-user-browse'
+);
+
+$router->map(
+    'GET',
+    '/admin/user/add',
+    [
+    'controller' => '\App\Controllers\Backoffice\UserController',
+    'method' => 'add'
+    ],
+    'admin-user-add'
+);
+
+$router->map(
+    'POST',
+    '/admin/user/add',
+    [
+    'controller' => '\App\Controllers\Backoffice\UserController',
+    'method' => 'addExecute'
+    ],
+    'admin-user-add-execute'
+);
+
+$router->map(
+    'GET',
+    '/admin/user/edit/[i:id]',
+    [
+    'controller' => '\App\Controllers\Backoffice\UserController',
+    'method' => 'edit'
+    ],
+    'admin-user-edit'
+);
+
+$router->map(
+    'POST',
+    '/admin/user/edit/[i:id]',
+    [
+    'controller' => '\App\Controllers\Backoffice\UserController',
+    'method' => 'editExecute'
+    ],
+    'admin-user-edit-execute'
+);
+
+$router->map(
+    'GET',
+    '/admin/user/delete/[i:id]',
+    [
+    'controller' => '\App\Controllers\Backoffice\UserController',
+    'method' => 'delete'
+    ],
+    'admin-user-delete'
 );
 
 /* ------------
