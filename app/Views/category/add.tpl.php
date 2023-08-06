@@ -17,9 +17,9 @@
         <form method="post" action="">
             <div class="form-group">
                 <label for="categoryName">Nom</label>
-                <input type="text" class="form-control" id="categoryName"  placeholder="Nom de la catégorie" name="name"  value='<?php echo isset($category1) ? $category1->getName() : "" ?>' >
+                <input type="text" class="form-control" id="categoryName"  placeholder="Nom de la catégorie" name="name"  value='<?php echo isset($category) ? $category->getName() : "" ?>' >
                 <label for="categoryFamily">Famille</label>
-                <input type="text" class="form-control" id="categoryFamily"  placeholder="Famille de la catégorie" name="family"  value='<?php echo isset($category1) ? $category1->getFamily() : "" ?>' >
+                <input type="text" class="form-control" id="categoryFamily"  placeholder="Famille de la catégorie" name="family"  value='<?php echo isset($category) ? $category->getFamily() : "" ?>' >
             </div>
             
             <button type="submit" class="btn btn-primary">Enregistrer</button>

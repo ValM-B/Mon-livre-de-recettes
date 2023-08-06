@@ -59,10 +59,46 @@ class CategoryController extends CoreController
     public function edit($id)
     {
         $category = Category::find($id);
-        var_dump($category);
         $this->show("category/add", [
             "categoryToUpdate" => true,
-            "category1" => $category,
+            "category" => $category,
         ]);
+    }
+
+    public function editExecute($id)
+    {
+        $name = filter_input(INPUT_POST, 'name');
+        $family = filter_input(INPUT_POST, 'family');
+        
+        $errorList = [];
+
+        if(empty($name) || empty($family)) {
+            $errorList[] = "Merci de remplir tous les champs";
+        }
+
+        $newCategory = Category::find($id);
+        $newCategory->setName($name);
+        $newCategory->setFamily($family);
+
+        if(!empty($errorList)){
+            
+            $this->show("category/add", [
+                "category" => $newCategory,
+                "errorList" => $errorList,
+            ]);
+            exit;
+        }
+
+        if (! $newCategory->save())
+        {
+            $errorList[] = "Une erreur s'est produite lors de l'enregitrement de la recette. Veuillez réessayer.";
+            $this->show("category/add", [
+                "category" => $newCategory,
+                "errorList" => $errorList,
+            ]);
+            exit;
+        }
+
+        $this->redirectToRoute("admin-category-browse");
     }
 }

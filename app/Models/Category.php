@@ -127,7 +127,20 @@ class Category extends CoreModel
 
     public function update($id)
     {
+        $pdo = Database::getPDO();
+        $sql = " UPDATE `category`
+                SET `name` = :name,
+                `family` = :family,
+                updated_at = now()
+                WHERE id = :id";
 
+        $preparedQuery = $pdo->prepare($sql);
+        $querySuccess = $preparedQuery->execute([
+            ':name' => $this->name,
+            ':family' => $this->family,
+            ':id'=> $this->id
+        ]);
+        return $querySuccess;
     }
 
     public static function delete(int $id)
