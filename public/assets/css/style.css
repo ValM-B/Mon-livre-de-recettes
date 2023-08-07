@@ -24,6 +24,7 @@ body{
     background-position: 50% 60%;
     background-attachment: fixed;
     font-family: 'Raleway', sans-serif;
+    
 }
 
 
@@ -47,7 +48,7 @@ button.navbar-toggler,
     color:  var(--title-color);
     font-weight:500;
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 1rem;
 }
 
 .btn-outline-info {
@@ -66,7 +67,7 @@ button.navbar-toggler,
 }
 
 .carousel{
-    margin-top : 3rem;
+    margin-top : 1rem;
     
 
 }
@@ -160,11 +161,14 @@ button.navbar-toggler,
     border : #eeb4ee;
 }
 
-#footer{
-    color: white;
+footer{
     font-family: var(--text-font-family);
     width: 100%;
-    margin-top : 4rem;
     text-align: center;
+    margin-top: 4rem;
+}
+#footer
+{
+    color: white;
     font-size: 1.2rem;
 }

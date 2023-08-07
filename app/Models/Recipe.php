@@ -311,4 +311,17 @@ class Recipe extends CoreModel
         return $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'App\Models\Recipe');
     }
 
+    public function searchByTitle($title)
+	{
+		$pdo = Database::getPDO();
+		$sql = "SELECT `id`, `title`, `portions`, `rate`, `instructions`, `category_id`, `picture`, `created_at`, `updated_at` 
+        FROM `recipe` 
+        WHERE `title` LIKE '%$title%' ";
+		$pdoStatement = $pdo->query($sql);
+		if ($pdoStatement === false) {
+            exit("Problème lors de la récupération de la liste des recettes");
+        }
+		return $pdoStatement->fetchAll(PDO::FETCH_CLASS, Recipe::class);
+	}
+
 }

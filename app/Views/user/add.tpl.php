@@ -1,4 +1,3 @@
-<main>
 <h2 class="display-1 home-title">
         <?php echo isset($userToUpdate) ? "Modifier un utilisateur" : "Ajouter un utilisateur";?>
     </h2>

@@ -1,5 +1,3 @@
-<main>
-
 <h2 class="display-1 home-title">
         <?php echo isset($categoryToUpdate) ? "Modifier une catégorie" : "Ajouter une catégorie";?>
     </h2>

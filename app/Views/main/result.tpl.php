@@ -1,4 +1,4 @@
-		<h2 class="display-1 home-title">Recettes de la catégorie
+		<h2 class="display-1 home-title">Résultat de la recherche
 		</h2>
 		<div class="category-recipes row row-cols-1 row-cols-md-3 g-4">
 			<?php

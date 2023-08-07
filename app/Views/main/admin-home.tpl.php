@@ -1,4 +1,3 @@
-<main>
     <h1 class="display-1 home-title">Administration</h1>
     <div class="container">
         <div class="row">

@@ -1,4 +1,4 @@
-<main>
+
     <h1 class="display-1 home-title">Le Cupcake Enchanté</h1>
     <div class="container">
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
@@ -28,7 +28,7 @@
             </button>
         </div>
         
-        <form class = "home-search">
+        <form class = "home-search" action="<?= $router->generate('search') ?>">
             <div class="container text-center">
                 <div class="row justify-content-sm-center">
                     <div class="col-sm-12">
@@ -37,7 +37,7 @@
                 </div>
                 <div class="row justify-content-sm-center">
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="specificSizeInputName" placeholder="">
+                        <input type="text" class="form-control" id="specificSizeInputName" name="search" placeholder="">
                     </div>
                 </div>
                 <div class="row justify-content-sm-center">

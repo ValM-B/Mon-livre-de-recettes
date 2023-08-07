@@ -1,4 +1,3 @@
-<main>
 <h2 class="display-1 home-title">
         Modifier votre compte
     </h2>

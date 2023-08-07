@@ -1,4 +1,3 @@
-<main>
     <!-- Display the appropriate title based on whether updating a recipe or adding a new one -->
     <h2 class="display-1 home-title">
         <?php echo isset($recipeToUpdate) ? "Modifier une recette" : "Ajouter une recette";?>

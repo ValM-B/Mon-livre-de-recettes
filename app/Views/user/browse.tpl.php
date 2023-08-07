@@ -1,5 +1,3 @@
-<main>
-
     <h2 class="display-1 home-title">Liste des utilisateurs</h2>
     <div class="container">
         <div class="card card-recipe mt-4 p-4">

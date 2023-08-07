@@ -1,5 +1,4 @@
 
-<main>
     <h2 class="display-1 home-title"><?= $recipe->getTitle(); ?></h2>
     <div class="container">
         <div class="card card-ingredients">

@@ -83,4 +83,23 @@ var_dump($password);
 
         $this->redirectToRoute('main-login');
     }
+
+    /**
+     * Méthode qui se charge d'afficher la page de résultats de recherche
+     *
+     * @return void
+     */
+    public function search()
+    {
+        if(isset($_GET["search"])) {
+            $search = $_GET["search"];
+        }
+        $model = new Recipe();
+        $listRecipes = $model->searchByTitle($search);
+
+        $this->show('main/result', [
+            "search" => $search,
+            "recipeList" => $listRecipes
+        ]);
+    }
 }

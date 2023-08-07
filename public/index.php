@@ -32,6 +32,16 @@ $router->map(
 
 $router->map(
     'GET',
+    '/results',
+    [
+        'controller' => '\App\Controllers\MainController',
+        'method' => 'search'
+    ],
+    'search'
+);
+
+$router->map(
+    'GET',
     '/admin',
     [
     'controller' => '\App\Controllers\MainController',
