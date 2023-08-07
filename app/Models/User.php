@@ -185,11 +185,46 @@ class User extends CoreModel
 
     public function update($id)
     {
-    
+        $pdo = Database::getPDO();
+        $sql = " UPDATE `user`
+                SET `name` = :name,
+                `email` = :email,
+                `password` = :password,
+                `role` = :role,
+                `status` = :status,
+                updated_at = now()
+                WHERE id = :id";
+
+        $preparedQuery = $pdo->prepare($sql);
+        $querySuccess = $preparedQuery->execute([
+            ':name' => $this->name,
+            ':email' => $this->email,
+            ':password' => $this->password,
+            ':role' => $this->role,
+            ':status' => $this->status,
+            ':id'=> $this->id
+        ]);
+        return $querySuccess;
     }
+
+    /**
+     * Supprime un utilisateur dans la DB en fonction de son ID
+     * 
+     * @param int $id identifiant de l'utilisateur à supprimer
+     * @return void
+     */
     public static function delete(int $id)
     {
+        $pdo = Database::getPDO();
+        $sql = "
+            DELETE FROM `user` 
+            WHERE `id` = :id";
         
+        $preparedQuery = $pdo->prepare($sql);
+        
+        $preparedQuery->execute([
+            ':id' => $id,
+        ]);
     }
 
     /**

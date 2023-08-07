@@ -19,11 +19,12 @@
                     <a class="nav-link" href="<?= $router->generate("admin-user-browse")?>">Utilisateurs</a>
                 </li>
                 <li class="nav-item">
+                <a class="nav-link" href="<?= $router->generate('admin-user-session-edit') ?>"><i class="fa-solid fa-user me-2"></i><?= $_SESSION['userObject']->getName() ?></a>
+            </li>
+                <li class="nav-item">
                     <a class="nav-link" href="<?= $router->generate("logout")?>">Se déconnecter</a>
                 </li>
-              
             </ul>
-           
 		</div>
 	</div>
 </nav>

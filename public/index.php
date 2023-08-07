@@ -310,6 +310,26 @@ $router->map(
     'admin-user-delete'
 );
 
+$router->map(
+    'GET',
+    '/admin/user/edit/userSession',
+    [
+    'controller' => '\App\Controllers\Backoffice\UserController',
+    'method' => 'editUserSession'
+    ],
+    'admin-user-session-edit'
+);
+
+$router->map(
+    'POST',
+    '/admin/user/edit/userSession',
+    [
+    'controller' => '\App\Controllers\Backoffice\UserController',
+    'method' => 'editUserSessionExecute'
+    ],
+    'admin-user-session-edit-execute'
+);
+
 /* ------------
 --- DISPATCH ---
 -------------*/
