@@ -1,5 +1,5 @@
 			</main>
-			<footer>
+			<footer class="mt-4">
 				
 				<p id="footer">&#169; 2023 / Le Cupcake Enchanté</p>
 			</footer>

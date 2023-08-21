@@ -6,6 +6,10 @@ use App\Models\User;
 
 class UserController extends CoreController
 {
+    /**
+     * Display a list of users in the admin area.
+     * @return void
+     */
     public function browse()
     {
         $users = User::findAll();
@@ -15,6 +19,9 @@ class UserController extends CoreController
         ]);
     }
 
+    /**
+     * Display the form to add a new user.
+     */
     public function add()
     {
         $this->show("user/add", [
@@ -22,6 +29,10 @@ class UserController extends CoreController
         ]);
     }
 
+     /**
+     * Handle the form submission to add a new user.
+     * 
+     */
     public function addExecute()
     {
         $name = filter_input(INPUT_POST, 'name');
@@ -32,7 +43,7 @@ class UserController extends CoreController
         $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
 
         $errorList = [];
-        //Vérification de l'email
+        // Validate inputs
         if (!$email)
         {
             $errorList[] = 'Merci de saisir un email valide';
@@ -41,7 +52,7 @@ class UserController extends CoreController
 				$errorList[] = "Cet utilisateur existe déjà";
 			}
 		}
-        //Vérification du mot de passe
+        
         if (strlen($password) < 8)
         {
             $errorList[] = 'Le mot de passe doit faire 8 caractères';
@@ -86,6 +97,9 @@ class UserController extends CoreController
 
     }
 
+    /**
+     * Display the form to edit a user.
+     */
     public function edit($id)
     {
         $user = User::find($id);
@@ -96,6 +110,11 @@ class UserController extends CoreController
         ]);
     }
 
+    /**
+     * Handle the form submission to edit a user.
+     * 
+     * @return void
+     */
     public function editExecute($id)
     {
         $name = filter_input(INPUT_POST, 'name');
@@ -106,13 +125,12 @@ class UserController extends CoreController
         $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
 
         $errorList = [];
-        //Vérification de l'email
+        // Validate inputs
         if (!$email)
         {
             $errorList[] = 'Merci de saisir un email valide';
         } 
 		
-        //Vérification du mot de passe
         if (strlen($password) < 8)
         {
             $errorList[] = 'Le mot de passe doit faire 8 caractères';
@@ -162,12 +180,20 @@ class UserController extends CoreController
         $this->redirectToRoute("admin-user-browse");
     }
 
+    /**
+     * Delete a user by ID.
+     * @return void
+     */
     public function delete($id)
     {
         User::delete($id);
         $this->redirectToRoute("admin-user-browse");
     }
 
+    /**
+     * Display the form to edit the currently logged-in user's session.
+     * @return void
+     */
     public function editUserSession()
     {
         $user = User::find($_SESSION["userId"]);
@@ -177,6 +203,10 @@ class UserController extends CoreController
         ]);
     }
 
+    /**
+     * Handle the form submission to edit the currently logged-in user's session.
+     * @return void
+     */
     public function editUserSessionExecute()
     {
         $name = filter_input(INPUT_POST, 'name');
@@ -187,13 +217,12 @@ class UserController extends CoreController
         $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
 
         $errorList = [];
-        //Vérification de l'email
+        // Validate inputs
         if (!$email)
         {
             $errorList[] = 'Merci de saisir un email valide';
         } 
 		
-        //Vérification du mot de passe
         if (strlen($password) < 8)
         {
             $errorList[] = 'Le mot de passe doit faire 8 caractères';

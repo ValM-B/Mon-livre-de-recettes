@@ -84,16 +84,6 @@ $router->map(
 
 $router->map(
     'GET',
-    '/recipe',
-    [
-    'controller' => '\App\Controllers\RecipeController',
-    'method' => 'browse'
-    ],
-    'recipe-browse'
-);
-
-$router->map(
-    'GET',
     '/recipe/category/[i:id]',
     [
     'controller' => '\App\Controllers\RecipeController',
@@ -176,27 +166,6 @@ $router->map(
 
 
 /* CATEGORY */ 
-
-$router->map(
-    'GET',
-    '/category',
-    [
-    'controller' => '\App\Controllers\CategoryController',
-    'method' => 'browse'
-    ],
-    'category-browse'
-);
-
-
-$router->map(
-    'GET',
-    '/category/[i:id]',
-    [
-        'controller' => '\App\Controllers\CategoryController',
-        'method' => 'read'
-    ],
-    'category-read'
-);
 
 $router->map(
     'GET',

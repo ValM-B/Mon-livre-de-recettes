@@ -6,6 +6,11 @@ use App\Models\Category;
 
 class CategoryController extends CoreController
 {   
+    /**
+     * Display a list of categories.
+     * 
+     * @return void
+     */
     public function browse()
     {
         $categories = Category::findAll();
@@ -15,6 +20,11 @@ class CategoryController extends CoreController
         ]);
     }
 
+    /**
+     * Display the form to add a new category.
+     * 
+     * @return void
+     */
     public function add()
     {
         $this->show("category/add", [
@@ -22,6 +32,11 @@ class CategoryController extends CoreController
         ]);
     }
     
+    /**
+     * Handle the form submission to add a new category.
+     * 
+     * @return void
+     */
     public function addExecute()
     {
         $name = filter_input(INPUT_POST, 'name');
@@ -59,6 +74,11 @@ class CategoryController extends CoreController
         $this->redirectToRoute("admin-category-browse");
     }
 
+    /**
+     * Display the form to edit a category.
+     * 
+     * @return void
+     */
     public function edit($id)
     {
         $category = Category::find($id);
@@ -69,6 +89,9 @@ class CategoryController extends CoreController
         ]);
     }
 
+    /**
+     * Handle the form submission to edit a category.
+     */
     public function editExecute($id)
     {
         $name = filter_input(INPUT_POST, 'name');
@@ -106,6 +129,9 @@ class CategoryController extends CoreController
         $this->redirectToRoute("admin-category-browse");
     }
 
+     /**
+     * Delete a category by ID.
+     */
     public function delete($id)
     {
         Category::delete($id);

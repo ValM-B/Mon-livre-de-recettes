@@ -8,6 +8,11 @@ use App\Models\Recipe;
 class RecipeController extends CoreController
 {
     
+    /**
+     * Display a list of recipes in the admin area.
+     * 
+     * @return void
+     */
     public function browse()
     {
         $recipes = Recipe::findAll("created_at");
@@ -17,6 +22,11 @@ class RecipeController extends CoreController
         ]);
     }
 
+    /**
+     * Display the form to add a new recipe.
+     * 
+     * @return void
+     */
     public function add()
     {
         $categories = Category::findAll();
@@ -26,6 +36,11 @@ class RecipeController extends CoreController
         ]);
     }
 
+    /**
+     * Handle the form submission to add a new recipe.
+     * 
+     * @return void
+     */
     public function addExecute()
     {
         $title = filter_input(INPUT_POST, 'title');
@@ -90,6 +105,11 @@ class RecipeController extends CoreController
         
     }
 
+    /**
+     * Display the form to edit a recipe.
+     * 
+     * @return void
+     */
     public function edit($id)
     {
         $recipe = Recipe::find($id);
@@ -102,6 +122,11 @@ class RecipeController extends CoreController
         ]);
     }
 
+     /**
+     * Handle the form submission to edit a recipe.
+     * 
+     * @return void
+     */
     public function editExecute($id)
     {
         $title = filter_input(INPUT_POST, 'title');
@@ -166,6 +191,11 @@ class RecipeController extends CoreController
         
     }
 
+     /**
+     * Delete a recipe by ID.
+     * 
+     * @return void
+     */
     public function delete($id)
     {
         Recipe::delete($id);

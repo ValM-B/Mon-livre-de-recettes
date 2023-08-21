@@ -7,24 +7,17 @@ use App\Models\Recipe;
 class RecipeController extends CoreController
 {
     /**
-     * Affiche la liste des recettes
+     * Affiche la liste des recettes d'une catégorie
      * 
-     * @return void
-     */
-    public function browse(){
-        $this->show("recipe/browse");
-    }
-
-        /**
-     * Affiche la liste des recettes
-     * 
+     * @param int $categoryId identifiant de la catégorie
      * @return void
      */
     public function browseByCategory($categoryId){
         $recipeList = Recipe::findByCategory($categoryId);
         
         $this->show("recipe/browse", [
-            "recipeList" => $recipeList
+            "recipeList" => $recipeList,
+            'bodyClassName' => "category"
         ]);
     }
 

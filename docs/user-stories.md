@@ -3,19 +3,25 @@
 
 
 
-| En tant que | Je veux | Afin de (si besoin/nécessaire) |
+| En tant que | Je veux pouvoir| Afin de (si besoin/nécessaire) |
 |--|--|--|
-| visiteur | Je veux pouvoir voir la photo 5 dernières recettes sur la page d'accueil | afin de connaitres les nouvelles recettes et les consulter |
-| visiteur| Je veux pouvoir rechercher une recette par son nom sur toutes les pages | afin de trouver la recette que je souhaite consulter |
-| visiteur| Je veux pouvoir accéder à une catégorie depuis n'importe quelle page | afin d'afficher les recettes de la catégorie |
-| visiteur| Je veux revenir à la page d'acceuil depuis n'importe quelle page | - |
-| visiteur| Je veux pouvoir visualiser une recette | afin de pouvoir la réaliser |
-| administrateur | Je veux pouvoir ajouter une recette| afin de proposer de nouvelles recettes aux visiteurs |
-| administrateur | Je veux pouvoir modifier une recette| - |
-| administrateur | Je veux pouvoir supprimer une recette| - |
-| administrateur | Je veux pouvoir ajouter un ingrédient| afin de pouvoir l'affecter à une recette|
-| administrateur | Je veux pouvoir modifier une ingrédient| - |
-| administrateur | Je veux pouvoir supprimer une ingrédient| - |
-| administrateur | Je veux pouvoir ajouter une catégorie| afin y affecter de nouvelles recettes |
-| administrateur | Je veux pouvoir modifier une catégorie| - |
-| administrateur | Je veux pouvoir supprimer une catégorie| - |
+| visiteur |  voir la photo des 5 dernières recettes sur la page d'accueil | connaitre les nouvelles recettes et les consulter |
+| visiteur |  rechercher une recette par son nom sur toutes les pages | trouver la recette que je souhaite consulter |
+| visiteur |  accéder à une catégorie depuis n'importe quelle page | afficher les recettes de la catégorie |
+| visiteur | revenir à la page d'acceuil depuis n'importe quelle page | - |
+| visiteur |  visualiser une recette | pouvoir la réaliser |
+| utilisateur |  accéder au formulaire de connexion | me connecter à l'interface d'administration |
+| utilisateur |  modifer mon compte utilisateur | mettre à jour mes infomrations personnelles et mon mot de passe |
+| utilisateur |  voir la liste des recettes | connaitre les recettes existantes (actives ou non)|
+| utilisateur |  ajouter une recette| proposer de nouvelles recettes aux visiteurs |
+| utilisateur |  modifier une recette| corriger des erreurs ou améliorer la recette |
+| utilisateur |  supprimer une recette| - |
+| utilisateur |  voir la liste des catégories | connaitre les catégories existantes (actives ou non)|
+| utilisateur |  ajouter une catégorie| y affecter de nouvelles recettes |
+| utilisateur |  modifier une catégorie| modifier son nom pour refleter le thème avec précision |
+| utilisateur |  supprimer une catégorie| - |
+| utilisateur |  me déconnecter | rendre l'interface d'administration inaccessible |
+| administrateur |  visualiser la liste des utilisateurs | connaitre les utilisateurs existants (actifs ou non) |
+| administrateur |  ajouter un utilisateur | donner l'accès à l'interface d'administration à de nouveaux membres en tant qu'auteur ou administrateur |
+| administrateur |  modifier un utilisateur | mettre à jour ses informations personnelles, son statut ou son rôle |
+| administrateur |  supprimer un utilisateur | supprimer son accès à l'interface d'administration pour des raisons de sécurité|

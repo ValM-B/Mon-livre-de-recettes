@@ -14,23 +14,22 @@ font-family: 'Ysabeau Infant', sans-serif;*/
     --title-card-font-family : 'Ysabeau Infant', sans-serif;
     --text-font-family : 'Raleway', sans-serif;
     --gradient : radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0.50) 100%);
-    --gradient-recipe : radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0.60) 100%);
+    --gradient-recipe : radial-gradient(circle, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.45) 50%, rgba(255,255,255,0.70) 100%);
 }
 
-body{
-    background-image: var(--gradient), url(../images/_7b5c2d4b-a7a4-4c13-80f3-233223c91ae8.jpg);
+body {
+    background-image: var(--gradient), url(../images/cupcake-enchante.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 60%;
     background-attachment: fixed;
     font-family: 'Raleway', sans-serif;
-    
 }
 
 
 .navbar {
     background-color: var(--bg-color);
-    
+
 }
 
 .navbar-brand,
@@ -165,7 +164,7 @@ footer{
     font-family: var(--text-font-family);
     width: 100%;
     text-align: center;
-    margin-top: 4rem;
+    
 }
 #footer
 {

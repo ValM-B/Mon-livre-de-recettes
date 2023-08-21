@@ -12,7 +12,8 @@ class MainController extends CoreController
     {
         $recipes = Recipe::findLast5();
         $this->show("main/home", [
-            'lastRecipes' => $recipes
+            'lastRecipes' => $recipes,
+            'bodyClassName' => "home"
         ]);
     }
 
@@ -33,7 +34,9 @@ class MainController extends CoreController
      * @return void
      */
     public function login(){
-        $this->show('main/login');
+        $this->show('main/login', [
+            'bodyClassName' => "login"
+        ]);
     }
 
     /**
@@ -99,7 +102,8 @@ var_dump($password);
 
         $this->show('main/result', [
             "search" => $search,
-            "recipeList" => $listRecipes
+            "recipeList" => $listRecipes,
+            'bodyClassName' => "search"
         ]);
     }
 }

@@ -68,7 +68,7 @@ class CoreController
     }
 
     /**
-     * redirige vers une autre route
+     * redirects to another route
      * 
      * @param $routeName
      * @return void
@@ -81,7 +81,7 @@ class CoreController
     }
 
     /**
-     * vérifie si l'utilsateur peut acceder à une page
+     * checks if the user can access a page
      *
      * @return void
      */

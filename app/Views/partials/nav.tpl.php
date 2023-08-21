@@ -48,10 +48,16 @@
                 </li>
                 
             </ul>
+            <?php
+            if($bodyClassName !== "home") :
+            ?>
             <form class="d-flex" role="search" action="<?= $router->generate('search') ?>">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
-                <button class="btn btn-outline-info" type="submit">Search</button>
+                <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search" name="search">
+                <button class="btn btn-outline-info" type="submit">Rechercher</button>
             </form>
+            <?php
+            endif;
+            ?>
 		</div>
 	</div>
 </nav>
