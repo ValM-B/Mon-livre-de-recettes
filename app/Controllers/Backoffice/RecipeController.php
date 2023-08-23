@@ -122,7 +122,7 @@ class RecipeController extends CoreController
         ]);
     }
 
-     /**
+    /**
      * Handle the form submission to edit a recipe.
      * 
      * @return void
@@ -191,7 +191,7 @@ class RecipeController extends CoreController
         
     }
 
-     /**
+    /**
      * Delete a recipe by ID.
      * 
      * @return void

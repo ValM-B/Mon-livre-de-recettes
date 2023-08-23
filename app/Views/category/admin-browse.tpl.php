@@ -40,7 +40,7 @@
                     <?php
                     endforeach;
                     ?>
-                 
+
                 </tbody>
             </table>
         </div>

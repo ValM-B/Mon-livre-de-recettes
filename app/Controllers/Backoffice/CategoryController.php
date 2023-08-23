@@ -129,7 +129,7 @@ class CategoryController extends CoreController
         $this->redirectToRoute("admin-category-browse");
     }
 
-     /**
+    /**
      * Delete a category by ID.
      */
     public function delete($id)
